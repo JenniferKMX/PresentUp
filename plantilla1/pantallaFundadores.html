@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup - Fundadores</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Contrail One', sans-serif;
+            background-color: #a6a6a6;
+            color: #6b18b2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #a6a6a6;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-title h1 {
+            color: #6b18b2;
+            font-size: 2.5rem;
+        }
+
+        .header-title p {
+            color: #d9156d;
+            font-size: 1.5rem;
+        }
+
+        .nav-button {
+            background-color: #4a007a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #37005d;
+        }
+
+        .container {
+            width: 80%;
+            height: 60%; /* Ajusta esta altura según sea necesario */
+            background-color: #d9d9d9;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrar contenido verticalmente dentro del contenedor */
+            margin: auto; /* Centra el contenedor tanto horizontal como verticalmente */
+            border-radius: 10px;
+        }
+
+        .founders-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .founders-title {
+            color: #d9156d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            margin-top: -30px;
+            text-align: center;
+        }
+
+
+        .founders {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas, la segunda para el FUNDADOR 3 */
+            gap: 20px; /* Espacio entre las cajas */
+            width: 100%;
+            margin-left: 70px;
+        }
+
+        .founder-box {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Alinear texto a la izquierda */
+            display: flex;
+            align-items: center; /* Centrar verticalmente el contenido dentro de la caja */
+            gap: 10px; /* Espacio entre la imagen y el texto */
+        }
+
+        .founder-name {
+            color: #6b18b2;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .founder-position {
+            color: #6b18b2;
+            margin-bottom: 10px;
+        }
+
+        .founder-description {
+            color: #6b18b2;
+            font-size: 1rem;
+        }
+
+        .founder-image {
+            width: 60px; /* Ajusta el tamaño de la imagen según sea necesario */
+            height: auto;
+        }
+
+        /* Diseño responsivo para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .founders {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+
+            .founder-box {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/logoEjemplo.png" alt="Logo" class="logo">
+        <div class="header-title">
+            <h1>StartUp</h1>
+            <p>"Slogan"</p>
+        </div>
+        <a href="#" class="nav-button">Inicio</a>
+    </div>
+
+    <div class="container">
+        <div class="founders-section">
+            <h2 class="founders-title">Nuestros fundadores:</h2>
+            <div class="founders">
+                <div class="founder-box">
+                    <img src="img/logoEjemplo.png" alt="Foto Fundador 1" class="founder-image">
+                    <div>
+                        <h3 class="founder-name">FUNDADOR 1</h3>
+                        <p class="founder-position">Cargo:</p>
+                        <p class="founder-description">
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto
+                        </p>
+                    </div>
+                </div>
+                <div class="founder-box">
+                    <img src="img/logoEjemplo.png" alt="Foto Fundador 2" class="founder-image">
+                    <div>
+                        <h3 class="founder-name">FUNDADOR 2</h3>
+                        <p class="founder-position">Cargo:</p>
+                        <p class="founder-description">
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto
+                        </p>
+                    </div>
+                </div>
+                <div class="founder-box" style="grid-column: 2; grid-row: 1">
+                    <img src="img/logoEjemplo.png" alt="Foto Fundador 3" class="founder-image">
+                    <div>
+                        <h3 class="founder-name">FUNDADOR 3</h3>
+                        <p class="founder-position">Cargo:</p>
+                        <p class="founder-description">
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto <br>
+                            Añadir un poco de texto
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
