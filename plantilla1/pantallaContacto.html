@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup - Contacto</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Contrail One', sans-serif;
+            background-color: #a6a6a6;
+            color: #6b18b2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #a6a6a6;
+            position: absolute;
+            top: 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-title h1 {
+            color: #6b18b2;
+            font-size: 2.5rem;
+        }
+
+        .header-title p {
+            color: #d9156d;
+            font-size: 1.5rem;
+        }
+
+        .nav-button {
+            background-color: #4a007a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #37005d;
+        }
+
+        .contact-container {
+            width: 40vw;
+            height: 40vw;
+            max-width: 400px;
+            max-height: 400px;
+            background-color: #d9d9d9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-title {
+            color: #d9156d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            color: #6b18b2;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .contact-image {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .contact-thanks {
+            color: #d9156d;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* Diseño responsivo */
+        @media (max-width: 600px) {
+            .contact-container {
+                width: 80vw;
+                height: 80vw;
+                padding: 15px;
+            }
+
+            .contact-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                font-size: 1rem;
+            }
+
+            .contact-thanks {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/logoEjemplo.png" alt="Logo" class="logo">
+        <div class="header-title">
+            <h1>StartUp</h1>
+            <p>"Slogan"</p>
+        </div>
+        <a href="#" class="nav-button">Inicio</a>
+    </div>
+
+    <div class="contact-container">
+        <h2 class="contact-title">¡Contáctanos!</h2>
+        <div class="contact-image">
+            <!-- Imagen de contacto o icono -->
+        </div>
+        <div class="contact-info">
+            <p>Email: xxxxxxxx@xxxxxxxx.com</p>
+            <p>Teléfono: (+34)000000000</p>
+        </div>
+        <p class="contact-thanks">¡Muchas gracias!</p>
+    </div>
+</body>
+</html>
+
