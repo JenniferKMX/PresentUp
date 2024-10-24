@@ -1,6 +1,9 @@
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,35 +15,93 @@ import javax.swing.JPopupMenu;
  * @author DAM2
  */
 public class InicioTrasLog extends javax.swing.JFrame {
- private JPopupMenu menuPopup;
 
     public InicioTrasLog() {
         initComponents();
         // Inicializamos el menú popup
-        initPopupMenu();
+        agregarMenuLateral();
+        jButton1.addActionListener(e -> abrirInicioTrasLog());
+        jButton2.addActionListener(e -> abrirInicio());
+        
+        jButton4.addActionListener(e -> abrirVerPlantillas());
     }
 
-    // Método para inicializar el menú popup
-    private void initPopupMenu() {
+    private void agregarMenuLateral() {
+        // Crear el menú desplegable (JPopupMenu)
+        JPopupMenu popupMenu = new JPopupMenu();
 
+        // Crear los elementos del menú
+        JMenuItem nuevoProyecto = new JMenuItem("Nuevo proyecto");
+        JMenuItem misProyectos = new JMenuItem("Mis proyectos");
+        JMenuItem plantillas = new JMenuItem("Plantillas");
+        JMenuItem miCuenta = new JMenuItem("Mi cuenta");
+        JMenuItem ayuda = new JMenuItem("Ayuda");
 
-        // Crear y añadir los JMenuItem
-        JMenuItem jMenuItem1 = new JMenuItem("Nuevo Proyecto");
-        JMenuItem jMenuItem2 = new JMenuItem("Mis Proyectos");
-        JMenuItem jMenuItem3 = new JMenuItem("Plantillas");
-        JMenuItem jMenuItem4 = new JMenuItem("Mi Cuenta");
-        JMenuItem jMenuItem5 = new JMenuItem("Ayuda");
+        // Agregar los elementos al menú desplegable
+        popupMenu.add(nuevoProyecto);
+        popupMenu.add(misProyectos);
+        popupMenu.add(plantillas);
+        popupMenu.add(miCuenta);
+        popupMenu.add(ayuda);
+    
 
-        // Añadir los items al menú popup
-        jPopupMenu1.add(jMenuItem1);
-        jPopupMenu1.add(jMenuItem2);
-        jPopupMenu1.add(jMenuItem3);
-        jPopupMenu1.add(jMenuItem4);
-        jPopupMenu1.add(jMenuItem5);
+           // Agregar un ActionListener al botón jButton3 para mostrar el menú cuando se hace clic
+           jButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Mostrar el menú desplegable justo debajo del botón jButton3
+                popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
+            }
+        });
+
+        
+        // (Opcional) Puedes agregar acciones a los elementos del menú
+        nuevoProyecto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Nuevo proyecto seleccionado");
+            }
+        });
+
+        misProyectos.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Mis proyectos seleccionados");
+            }
+        });
+
+        plantillas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Plantillas seleccionadas");
+            }
+        });
+
+        miCuenta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Mi cuenta seleccionada");
+            }
+        });
+
+        ayuda.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Ayuda seleccionada");
+            }
+        });
     }
-    
-    
 
+
+    private void abrirInicioTrasLog() {
+        new InicioTrasLog().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirInicio() {
+        new Inicio().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirVerPlantillas() {
+        new VPlantillas().setVisible(true);
+        this.dispose();
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

@@ -30,6 +30,7 @@ public class VPlantillas extends javax.swing.JFrame {
         agregarMenuLateral();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
        cambiarColorDeFondo();
+       jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
     private void cargarFuentePersonalizada() {
         try {
@@ -136,6 +137,13 @@ public class VPlantillas extends javax.swing.JFrame {
             }
         });
     }
+
+    private void abrirInicioTrasLog() {
+        new InicioTrasLog().setVisible(true);
+        this.dispose();
+    }
+
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.

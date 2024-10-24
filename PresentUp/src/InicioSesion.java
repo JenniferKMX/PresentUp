@@ -24,6 +24,8 @@ public class InicioSesion extends javax.swing.JFrame {
         initComponents();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
+        jButton2.addActionListener(e -> abrirInicio());
+        jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
 
     
@@ -57,7 +59,15 @@ public class InicioSesion extends javax.swing.JFrame {
         getContentPane().setBackground(colorPersonalizado);
     }
    
-    
+    private void abrirInicio() {
+        new Inicio().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirInicioTrasLog() {
+        new InicioTrasLog().setVisible(true);
+        this.dispose();
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,9 +85,6 @@ public class InicioSesion extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,13 +157,6 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,9 +236,6 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

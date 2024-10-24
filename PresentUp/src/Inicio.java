@@ -13,6 +13,9 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
+        jButton2.addActionListener(e -> abrirSaberMas());
+        jButton3.addActionListener(e -> abrirInicioSesion());
+        jButton4.addActionListener(e -> abrirCrearCuenta());
     }
 
     private void cargarFuentePersonalizada() {
@@ -84,6 +87,23 @@ public class Inicio extends javax.swing.JFrame {
         // Cambiar el color de fondo del JFrame
         getContentPane().setBackground(colorPersonalizado);
     }
+
+    private void abrirSaberMas() {
+        new SaberMas().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirInicioSesion() {
+        new InicioSesion().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirCrearCuenta() {
+        new CrearCuenta().setVisible(true);
+        this.dispose();
+    }
+
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

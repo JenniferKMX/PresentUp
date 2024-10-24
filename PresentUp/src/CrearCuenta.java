@@ -14,7 +14,21 @@ public class CrearCuenta extends javax.swing.JFrame {
      */
     public CrearCuenta() {
         initComponents();
+        jButton2.addActionListener(e -> abrirInicio());
+        jButton1.addActionListener(e -> abrirInicioSesion());
     }
+
+
+    private void abrirInicio() {
+        new Inicio().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirInicioSesion() {
+        new InicioSesion().setVisible(true);
+        this.dispose();
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

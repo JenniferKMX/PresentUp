@@ -24,6 +24,8 @@ public class SaberMas extends javax.swing.JFrame {
         initComponents();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
+        jButton1.addActionListener(e -> abrirInicio());
+        jButton2.addActionListener(e -> abrirInicio());
     }
     
 private void cargarFuentePersonalizada() {
@@ -53,6 +55,10 @@ private void cargarFuentePersonalizada() {
         getContentPane().setBackground(colorPersonalizado);
     }
    
+    private void abrirInicio() {
+        new Inicio().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
