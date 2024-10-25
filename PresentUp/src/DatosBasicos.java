@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.Color;
+
 /**
  *
  * @author DAM2
@@ -14,11 +16,20 @@ public class DatosBasicos extends javax.swing.JFrame {
      */
     public DatosBasicos() {
         initComponents();
+        cambiarColorDeFondo();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirAniadirFund());
-        
-        
+        jButton5.addActionListener(e -> abrirFormProduct());
     }
+
+    private void cambiarColorDeFondo() {
+        // Crear un color personalizado usando valores RGB
+        Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
+
+        // Cambiar el color de fondo del JFrame
+        getContentPane().setBackground(colorPersonalizado);
+    }
+
 
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);
@@ -27,6 +38,11 @@ public class DatosBasicos extends javax.swing.JFrame {
 
     private void abrirAniadirFund() {
         new AniadirFund().setVisible(true);
+        this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
+    }
+
+    private void abrirFormProduct() {
+        new FormularioProductoServicio().setVisible(true);
         this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
     }
 

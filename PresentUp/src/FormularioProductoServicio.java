@@ -18,7 +18,9 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
     public FormularioProductoServicio() {
         initComponents();
         cambiarColorDeFondo();
-        jButton1.addActionListener(e -> abrirInicio());
+        jButton1.addActionListener(e -> abrirInicioTrasLog());
+        jButton2.addActionListener(e -> abrirDatosBasicos());
+       // jButton3.addActionListener(e -> abrirDatosFinanc());
     }
 
      private void cambiarColorDeFondo() {
@@ -29,10 +31,17 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
         getContentPane().setBackground(colorPersonalizado);
     }
     
-    private void abrirInicio() {
-        new Inicio().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+    private void abrirInicioTrasLog() {
+        new InicioTrasLog().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
     }
 
+    private void abrirDatosBasicos() {
+        new DatosBasicos().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

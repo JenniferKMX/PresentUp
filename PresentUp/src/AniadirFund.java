@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.Color;
+
 /**
  *
  * @author DAM2
@@ -14,10 +16,20 @@ public class AniadirFund extends javax.swing.JFrame {
      */
     public AniadirFund() {
         initComponents();
+        cambiarColorDeFondo();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> volverDatosBasicos());
         jButton5.addActionListener(e -> guardarFundadores());
     }
+
+    private void cambiarColorDeFondo() {
+        // Crear un color personalizado usando valores RGB
+        Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
+
+        // Cambiar el color de fondo del JFrame
+        getContentPane().setBackground(colorPersonalizado);
+    }
+
 
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);
