@@ -30,7 +30,7 @@ public class VPlantillas extends javax.swing.JFrame {
         agregarMenuLateral();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
        cambiarColorDeFondo();
-       jButton1.addActionListener(e -> abrirInicioTrasLog());
+       jButton1.addActionListener(e -> abrirInicioTrasLog());     
     }
     private void cargarFuentePersonalizada() {
         try {
@@ -102,28 +102,18 @@ public class VPlantillas extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Mostrar el menú desplegable justo debajo del botón jButton2
-                popupMenu.show(jButton2, jButton2.getWidth(), jButton2.getHeight());
+                popupMenu.show(jButton2, jButton2.getWidth(), jButton2.getHeight());             
             }
         });
 
-        // (Opcional) Puedes agregar acciones a los elementos del menú
-        nuevoProyecto.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Nuevo proyecto seleccionado");
-            }
-        });
+        nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
+        //Falta mis proyectos
+        misProyectos.addActionListener(e -> abrirVPlantillas());
+        //Falta Micuenta
+        //Falta Ayuda
 
-        misProyectos.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Mis proyectos seleccionados");
-            }
-        });
+        //Pasar a todas a las que tienen menu 
 
-        plantillas.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Plantillas seleccionadas");
-            }
-        });
 
         miCuenta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -143,6 +133,15 @@ public class VPlantillas extends javax.swing.JFrame {
         this.dispose();
     }
 
+    private void abrirNombreNuevoPoryecto() {
+        new NombreNuevoPoryecto().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirVPlantillas() {
+        new VPlantillas().setVisible(true);
+        this.dispose();
+    }
  
 
     /**
