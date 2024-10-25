@@ -7,13 +7,15 @@
  *
  * @author DAM2
  */
-public class NombreNuevoProyecto extends javax.swing.JFrame {
+public class NombreNuevoPoryecto extends javax.swing.JFrame {
 
     /**
      * Creates new form NombreNuevoPoryecto
      */
-    public NombreNuevoProyecto() {
+    public NombreNuevoPoryecto() {
         initComponents();
+        jButton1.addActionListener(e -> abrirInicio());
+        jButton2.addActionListener(e -> abrirElegirPlantilla());
     }
 
     /**
@@ -33,7 +35,7 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png")));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
 
         jLabel1.setText("PresentUp");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -60,8 +62,8 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addGap(350, 350, 350)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(422, 422, 422)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -83,13 +85,13 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(127, 127, 127)
                 .addComponent(jLabel2)
                 .addGap(39, 39, 39)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(25, 25, 25))
         );
@@ -103,7 +105,17 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-    }                                        
+    }     
+    
+    private void abrirInicio() {
+        new InicioTrasLog().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
+    }
+
+    private void abrirElegirPlantilla() {
+        new ElegirPlantilla().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
+    }
 
     /**
      * @param args the command line arguments
@@ -122,20 +134,20 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NombreNuevoProyecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NombreNuevoPoryecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NombreNuevoProyecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NombreNuevoPoryecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NombreNuevoProyecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NombreNuevoPoryecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NombreNuevoProyecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NombreNuevoPoryecto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NombreNuevoProyecto().setVisible(true);
+                new NombreNuevoPoryecto().setVisible(true);
             }
         });
     }
@@ -148,3 +160,5 @@ public class NombreNuevoProyecto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration                   
 }
+
+
