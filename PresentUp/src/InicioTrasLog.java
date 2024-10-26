@@ -18,11 +18,9 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     public InicioTrasLog() {
         initComponents();
-        // Inicializamos el menú popup
         agregarMenuLateral();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
-        jButton2.addActionListener(e -> abrirInicio());
-        
+        jButton2.addActionListener(e -> abrirInicio());      
         jButton4.addActionListener(e -> abrirVerPlantillas());
     }
 
@@ -53,38 +51,13 @@ public class InicioTrasLog extends javax.swing.JFrame {
                 popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
             }
         });
+    
+        nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
+        //Falta mis proyectos
+        plantillas.addActionListener(e -> abrirVPlantillas());
+        miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
+        //Falta Ayuda
 
-        
-        // (Opcional) Puedes agregar acciones a los elementos del menú
-        nuevoProyecto.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Nuevo proyecto seleccionado");
-            }
-        });
-
-        misProyectos.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Mis proyectos seleccionados");
-            }
-        });
-
-        plantillas.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Plantillas seleccionadas");
-            }
-        });
-
-        miCuenta.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Mi cuenta seleccionada");
-            }
-        });
-
-        ayuda.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Ayuda seleccionada");
-            }
-        });
     }
 
 
@@ -102,7 +75,21 @@ public class InicioTrasLog extends javax.swing.JFrame {
         new VPlantillas().setVisible(true);
         this.dispose();
     }
-    
+    private void abrirNombreNuevoPoryecto() {
+        new NombreNuevoPoryecto().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirVPlantillas() {
+        new VPlantillas().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirPantallaMiCuenta() {
+        new PantallaMiCuenta().setVisible(true);
+        this.dispose();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
