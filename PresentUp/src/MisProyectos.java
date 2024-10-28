@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.net.URI;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DAM2
@@ -14,7 +18,24 @@ public class MisProyectos extends javax.swing.JFrame {
      */
     public MisProyectos() {
         initComponents();
+        jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
+
+
+    private void abrirInicioTrasLog() {
+        new InicioTrasLog().setVisible(true);
+        this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
+    }
+
+
+    //private void jButtonHTMLActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        
+      //  try {
+         //   Desktop.getDesktop().browse(new URI("RUTAARCHIVOHTML")) ;
+        // } catch (Exception ex) {
+           // JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción");
+        //}
+  //  }  
 
     /**
      * This method is called from within the constructor to initialize the form.
