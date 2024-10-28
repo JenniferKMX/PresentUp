@@ -30,7 +30,7 @@ public class ProyectoListo extends javax.swing.JFrame {
     }
     
     private void abrirInicio() {
-        new Inicio().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        new InicioTrasLog().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
     }
 
     /**
