@@ -29,7 +29,7 @@ public class VPlantillas extends javax.swing.JFrame {
         initComponents();
         agregarMenuLateral();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
-       cambiarColorDeFondo();
+        cambiarColorDeFondo();
        jButton1.addActionListener(e -> abrirInicioTrasLog());     
     }
     private void cargarFuentePersonalizada() {
@@ -107,25 +107,10 @@ public class VPlantillas extends javax.swing.JFrame {
         });
 
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
-        //Falta mis proyectos
-        misProyectos.addActionListener(e -> abrirVPlantillas());
-        //Falta Micuenta
+        misProyectos.addActionListener(e -> abrirMisPoryectos());
+        plantillas.addActionListener(e -> abrirVPlantillas());
+        miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
         //Falta Ayuda
-
-        //Pasar a todas a las que tienen menu 
-
-
-        miCuenta.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Mi cuenta seleccionada");
-            }
-        });
-
-        ayuda.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Ayuda seleccionada");
-            }
-        });
     }
 
     private void abrirInicioTrasLog() {
@@ -140,6 +125,15 @@ public class VPlantillas extends javax.swing.JFrame {
 
     private void abrirVPlantillas() {
         new VPlantillas().setVisible(true);
+        this.dispose();
+    }
+    private void abrirPantallaMiCuenta() {
+        new PantallaMiCuenta().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirMisPoryectos() {
+        new MisProyectos().setVisible(true);
         this.dispose();
     }
  

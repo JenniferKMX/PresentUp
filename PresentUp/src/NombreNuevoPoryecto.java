@@ -15,7 +15,7 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
     public NombreNuevoPoryecto() {
         initComponents();
         jButton1.addActionListener(e -> abrirInicio());
-        jButton2.addActionListener(e -> abrirPresFormulario());
+        jButton2.addActionListener(e -> abrirElegirPlantilla());
     }
 
     /**
@@ -112,7 +112,11 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
         this.dispose();
     }
 
+<<<<<<< HEAD
     private void abrirPresFormulario() {
+=======
+    private void abrirElegirPlantilla() {
+>>>>>>> 63fee7b288d6e044b1d6cfeff07c5373d8acecbe
         new ElegirPlantilla().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
         this.dispose();
     }

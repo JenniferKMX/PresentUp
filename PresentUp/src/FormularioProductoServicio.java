@@ -20,7 +20,7 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
         cambiarColorDeFondo();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> abrirDatosBasicos());
-       // jButton3.addActionListener(e -> abrirDatosFinanc());
+        jButton3.addActionListener(e -> abrirDatosFinanc());
     }
 
      private void cambiarColorDeFondo() {
@@ -40,7 +40,11 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
         new DatosBasicos().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
         this.dispose();
     }
-
+ 
+    private void abrirDatosFinanc() {
+        new FormularioFinanciacion().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
+    }
     
 
     /**
