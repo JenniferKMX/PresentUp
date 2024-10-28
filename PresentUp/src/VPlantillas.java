@@ -107,7 +107,7 @@ public class VPlantillas extends javax.swing.JFrame {
         });
 
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
-        //Falta mis proyectos
+        misProyectos.addActionListener(e -> abrirMisPoryectos());
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
         //Falta Ayuda
@@ -132,6 +132,10 @@ public class VPlantillas extends javax.swing.JFrame {
         this.dispose();
     }
 
+    private void abrirMisPoryectos() {
+        new MisProyectos().setVisible(true);
+        this.dispose();
+    }
  
 
     /**
