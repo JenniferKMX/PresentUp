@@ -15,7 +15,7 @@ public class ElegirPlantilla extends javax.swing.JFrame {
     public ElegirPlantilla() {
         initComponents();
         jButton1.addActionListener(e -> abrirInicio());
-        //jButton8.addActionListener(e -> abrirElegirPlantilla());
+        jButton8.addActionListener(e -> abrirElegirPlantilla());
 
     }
 
@@ -141,7 +141,7 @@ public class ElegirPlantilla extends javax.swing.JFrame {
         this.dispose();
     }
     private void abrirElegirPlantilla() {
-        new ElegirPlantilla().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        new PresentacionForm().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
         this.dispose();
     }
 

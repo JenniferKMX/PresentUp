@@ -113,7 +113,7 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
     }
 
     private void abrirPresFormulario() {
-        new PresentacionForm().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        new ElegirPlantilla().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
         this.dispose();
     }
 
