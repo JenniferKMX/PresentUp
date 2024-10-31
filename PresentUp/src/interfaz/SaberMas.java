@@ -1,3 +1,4 @@
+package interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -56,7 +57,8 @@ private void cargarFuentePersonalizada() {
     }
    
     private void abrirInicio() {
-        new Inicio().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
+        new Inicio().setVisible(true); 
+        this.dispose();// Asume que Inicio.java crea un nuevo objeto Inicio
     }
 
     /**
