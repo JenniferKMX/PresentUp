@@ -1,5 +1,7 @@
 package datos;
 
+import javax.imageio.ImageIO;
+
 public class Usuario {
 
     private String nom;
@@ -8,6 +10,7 @@ public class Usuario {
     private String password;
     private String pref;
     private String tlf;
+    ImageIO foto;
 
     public String getNom() {
         return this.nom;
