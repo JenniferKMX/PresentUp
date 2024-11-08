@@ -1,10 +1,14 @@
 package interfaz;
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
+import java.awt.Desktop;
+
+import java.io.File;
 
 /**
  *
@@ -19,6 +23,66 @@ public class InicioTrasLog extends javax.swing.JFrame {
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> abrirInicio());
         jButton4.addActionListener(e -> abrirVerPlantillas());
+        jButton5.addActionListener(e -> abrirPlantilla1(e));
+        jButton6.addActionListener(e -> abrirPlantilla2(e));
+        jButton7.addActionListener(e -> abrirPlantilla3(e));
+        jButton8.addActionListener(e -> abrirPlantilla4(e));
+    }
+
+    private void abrirPlantilla1(java.awt.event.ActionEvent evt) {
+        try {
+            File file = new File(
+                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla1\\inicio.html");
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla2(java.awt.event.ActionEvent evt) {
+        try {
+            File file = new File(
+                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla2\\inicio.html");
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla3(java.awt.event.ActionEvent evt) {
+        try {
+            File file = new File(
+                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla3\\inicio.html");
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla4(java.awt.event.ActionEvent evt) {
+        try {
+            File file = new File(
+                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla4\\inicio.html");
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
     }
 
     private void cambiarColorDeFondo() {
