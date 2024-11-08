@@ -4,7 +4,11 @@ package interfaz;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import java.awt.Color;
+ import java.awt.Font;
+ import java.awt.FontFormatException;
+ import java.awt.GraphicsEnvironment;
+ import java.io.IOException;
+ import java.awt.Color;
 
 /**
  *
@@ -18,6 +22,7 @@ public class AniadirFund extends javax.swing.JFrame {
     public AniadirFund() {
         initComponents();
         cambiarColorDeFondo();
+        cargarFuentePersonalizada();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> volverDatosBasicos());
         jButton5.addActionListener(e -> guardarFundadores());
@@ -31,6 +36,82 @@ public class AniadirFund extends javax.swing.JFrame {
         getContentPane().setBackground(colorPersonalizado);
     }
 
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); LOGO
+        jButton2.setFont(fuentePersonalizada);//Boton Atras
+        jButton3.setFont(fuentePersonalizada);//Boton Subir Imagen Der
+        jButton4.setFont(fuentePersonalizada);//Boton Subir Imagen Izq
+        jButton5.setFont(fuentePersonalizada);//Boton Guardar
+
+        // Aplica la fuente a todos los JLabel
+        jLabel1.setFont(fuentePersonalizada);//Titulo
+        jLabel2.setFont(fuentePersonalizada);//Subtitulo
+        jLabel3.setFont(fuentePersonalizada);// Label Equipo Fundador
+        jLabel4.setFont(fuentePersonalizada);// Label Fundador 2
+        jLabel5.setFont(fuentePersonalizada);// Label Fundador 3
+        jLabel6.setFont(fuentePersonalizada);// Numero de pag
+
+        // Aplica la fuente a los JTextField
+        jTextField1.setFont(fuentePersonalizada);// Texto Cargo F2
+        jTextField2.setFont(fuentePersonalizada);// Texto Cargo F3
+        jTextField5.setFont(fuentePersonalizada);// Texto Nombre F2
+        jTextField6.setFont(fuentePersonalizada);// Texto Breve biografia F2 
+        jTextField7.setFont(fuentePersonalizada);// Texto Breve biografia F3
+        jTextField8.setFont(fuentePersonalizada);// texto Nombre F3 
+        
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
+        Font textoPlano = fuenteBase.deriveFont(25f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+       // Font textoMenu = fuenteBase.deriveFont(20f);    // Tamaño del menu 
+
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton1.setFont(textoBotones);  // LOGO 
+        jButton2.setFont(textoBotones); // Tamaño 30 para este botón
+        jButton3.setFont(textoBotones); // Tamaño 30 para este botón
+        jButton4.setFont(textoBotones); // Tamaño 30 para este botón
+        jButton5.setFont(textoBotones); // Tamaño 30 para este botón
+
+        // Aplica la fuente a los JTextField
+        jLabel1.setFont(titulos);  // Titulo (PresentUp)
+        jLabel2.setFont(subtitulo);  // Subtitulo (¿Ya Tienes Cuenta?
+        jLabel3.setFont(textoPlano);  
+        jLabel4.setFont(textoPlano);
+        jLabel5.setFont(textoPlano); 
+        jLabel6.setFont(textoBotones);//esta label tiene el mismo tamaño de letra que los botones 
+         
+        jTextField1.setFont(textoPlano);
+        jTextField2.setFont(textoPlano);
+        jTextField5.setFont(textoPlano);
+        jTextField6.setFont(textoPlano);
+        jTextField7.setFont(textoPlano);
+        jTextField8.setFont(textoPlano);
+
+    }
 
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);
@@ -149,17 +230,17 @@ public class AniadirFund extends javax.swing.JFrame {
                 .addGap(216, 216, 216)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5)
                     .addComponent(jButton4))
                 .addGap(221, 221, 221))

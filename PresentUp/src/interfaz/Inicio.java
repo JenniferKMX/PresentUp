@@ -3,7 +3,6 @@ package interfaz;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
-import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 
@@ -22,9 +21,9 @@ public class Inicio extends javax.swing.JFrame {
     private void cargarFuentePersonalizada() {
         try {
             // Ruta al archivo de la fuente en tu proyecto
-            String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
-            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, new File(rutaFuente)); // Fuente base sin tamaño
-
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
             // Registrar la fuente en el sistema (opcional)
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(fuentePersonalizada);
@@ -32,7 +31,7 @@ public class Inicio extends javax.swing.JFrame {
             // Aplicar la fuente personalizada a los componentes
             aplicarFuentePersonalizada(fuentePersonalizada);
 
-        } catch (IOException | FontFormatException e) {
+        } catch (IOException | FontFormatException e) {  
             e.printStackTrace();
         }
     }
@@ -295,6 +294,8 @@ public class Inicio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
+     
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
