@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import java.awt.Desktop;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -31,6 +33,82 @@ public class VPlantillas extends javax.swing.JFrame {
         cargarFuentePersonalizada(); // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
+        jButton3.addActionListener(e -> abrirPlantilla1(e));
+        jButton4.addActionListener(e -> abrirPlantilla2(e));
+        jButton5.addActionListener(e -> abrirPlantilla3(e));
+        jButton6.addActionListener(e -> abrirPlantilla4(e));
+    }
+
+    private void abrirPlantilla1(java.awt.event.ActionEvent evt) {
+        try {
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla1" + File.separator + "inicio.html");
+
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla2(java.awt.event.ActionEvent evt) {
+        try {
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla2" + File.separator + "inicio.html");
+
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla3(java.awt.event.ActionEvent evt) {
+        try {
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla3" + File.separator + "inicio.html");
+
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
+    }
+
+    private void abrirPlantilla4(java.awt.event.ActionEvent evt) {
+        try {
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla4" + File.separator + "inicio.html");
+
+            if (file.exists()) {
+                Desktop.getDesktop().browse(file.toURI());
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR, el archivo no existe");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR, no se puede ejecutar la opción: " + ex.getMessage());
+        }
     }
 
     private void cargarFuentePersonalizada() {
@@ -154,10 +232,10 @@ public class VPlantillas extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,17 +245,17 @@ public class VPlantillas extends javax.swing.JFrame {
 
         jButton2.setText("btnMenu");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla1.png"))); // NOI18N
+        jButton3.setText("jButton3");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla2.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla2.png"))); // NOI18N
+        jButton4.setText("jButton4");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla3.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla3.png"))); // NOI18N
+        jButton5.setText("jButton5");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla 4.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Plantilla 4.png"))); // NOI18N
+        jButton6.setText("jButton6");
 
         jTextField1.setBackground(new java.awt.Color(184, 198, 230));
         jTextField1.setText("PresentUp");
@@ -202,17 +280,17 @@ public class VPlantillas extends javax.swing.JFrame {
                                                 .addGroup(layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
                                                                 false)
-                                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 0, Short.MAX_VALUE)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 463, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(141, 141, 141)
                                                 .addGroup(layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
                                                                 false)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 0, Short.MAX_VALUE))
                                                 .addContainerGap(273, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
@@ -245,12 +323,12 @@ public class VPlantillas extends javax.swing.JFrame {
                                                 .addGap(79, 79, 79)
                                                 .addGroup(layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel2))))
+                                                        .addComponent(jButton3)
+                                                        .addComponent(jButton4))))
                                 .addGap(75, 75, 75)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
+                                        .addComponent(jButton5)
+                                        .addComponent(jButton6))
                                 .addContainerGap(93, Short.MAX_VALUE)));
 
         pack();
@@ -307,10 +385,10 @@ public class VPlantillas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

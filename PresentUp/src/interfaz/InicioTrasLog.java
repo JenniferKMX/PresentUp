@@ -31,8 +31,12 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     private void abrirPlantilla1(java.awt.event.ActionEvent evt) {
         try {
-            File file = new File(
-                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla1\\inicio.html");
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla1" + File.separator + "inicio.html");
+
             if (file.exists()) {
                 Desktop.getDesktop().browse(file.toURI());
             } else {
@@ -45,8 +49,12 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     private void abrirPlantilla2(java.awt.event.ActionEvent evt) {
         try {
-            File file = new File(
-                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla2\\inicio.html");
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla2" + File.separator + "inicio.html");
+
             if (file.exists()) {
                 Desktop.getDesktop().browse(file.toURI());
             } else {
@@ -59,8 +67,12 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     private void abrirPlantilla3(java.awt.event.ActionEvent evt) {
         try {
-            File file = new File(
-                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla3\\inicio.html");
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla3" + File.separator + "inicio.html");
+
             if (file.exists()) {
                 Desktop.getDesktop().browse(file.toURI());
             } else {
@@ -73,8 +85,12 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     private void abrirPlantilla4(java.awt.event.ActionEvent evt) {
         try {
-            File file = new File(
-                    "C:\\Users\\DAM2\\Desktop\\DesarrolloInterfaces\\proyecto\\PresentUp\\plantilla4\\inicio.html");
+            // Obtener la ruta del directorio de trabajo actual
+            String basePath = System.getProperty("user.dir");
+
+            // Crear el objeto File usando una ruta relativa
+            File file = new File(basePath + File.separator + "plantilla4" + File.separator + "inicio.html");
+
             if (file.exists()) {
                 Desktop.getDesktop().browse(file.toURI());
             } else {
