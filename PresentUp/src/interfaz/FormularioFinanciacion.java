@@ -4,7 +4,11 @@ package interfaz;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import java.awt.Color;
+ import java.awt.Color;
+ import java.io.IOException;
+ import java.awt.Font;
+ import java.awt.FontFormatException;
+ import java.awt.GraphicsEnvironment;
 
 /**
  *
@@ -18,6 +22,7 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
     public FormularioFinanciacion() {
         initComponents();
         cambiarColorDeFondo();
+        cargarFuentePersonalizada();
         jButton2.addActionListener(e -> abrirFormularioProductoServicio());
         jButton3.addActionListener(e -> abrirProyectoListo());
     }
@@ -28,6 +33,83 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
 
         // Cambiar el color de fondo del JFrame
         getContentPane().setBackground(colorPersonalizado);
+    }
+
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); //LOGO
+        jButton2.setFont(fuentePersonalizada); //Atras
+        jButton3.setFont(fuentePersonalizada); //Finalizar
+
+        // Aplica la fuente a todos los JLabel
+        jLabel1.setFont(fuentePersonalizada);//Titulo 
+        jLabel2.setFont(fuentePersonalizada);//Seccion3 
+        jLabel3.setFont(fuentePersonalizada);//Cantidad de financiacion
+        jLabel4.setFont(fuentePersonalizada);//Uso de los fondos 
+        jLabel5.setFont(fuentePersonalizada);//Proyeccion financieras 
+        jLabel6.setFont(fuentePersonalizada);//Ingresos
+        jLabel7.setFont(fuentePersonalizada);//Gastos
+      
+        // Aplica la fuente a los JTextField
+        jTextField1.setFont(fuentePersonalizada);// Texto Euros
+
+        // Aplica la fuente a los JScrollPane
+        jTextArea1.setFont(fuentePersonalizada);//En que se van a emplear 
+        jTextArea2.setFont(fuentePersonalizada);//Ingresos proyectados
+        jTextArea3.setFont(fuentePersonalizada);//Gastos proyectados 
+        
+        
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
+        Font otrosSubtitulos = fuenteBase.deriveFont(26f); // Tamaño de otros Subtitulos
+        Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+       
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton2.setFont(textoBotones);
+        jButton3.setFont(textoBotones);   
+               
+
+        // Aplica la fuente a los JTextField
+        jLabel1.setFont(titulos);  
+        jLabel2.setFont(subtitulo);  
+        jLabel3.setFont(otrosSubtitulos);
+        jLabel4.setFont(otrosSubtitulos); 
+        jLabel5.setFont(otrosSubtitulos); 
+        jLabel6.setFont(otrosSubtitulos);
+        jLabel7.setFont(otrosSubtitulos);
+       
+         
+        jTextField1.setFont(textoBotones);
+      
+        jTextArea1.setFont(textoPlano);
+        jTextArea2.setFont(textoPlano);
+        jTextArea3.setFont(textoPlano);
+
+
     }
 
     /**
@@ -86,11 +168,11 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
         jTextArea2.setToolTipText("");
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel7.setText("gastos:");
+        jLabel7.setText("Gastos:");
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jTextArea3.setText("gastos proyectados para el proximo año");
+        jTextArea3.setText("Gastos proyectados para el proximo año");
         jScrollPane3.setViewportView(jTextArea3);
 
         jButton2.setText("Atrás");

@@ -4,7 +4,12 @@ package interfaz;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import java.awt.Color;
+
+ import java.awt.Color;
+ import java.io.IOException;
+ import java.awt.Font;
+ import java.awt.FontFormatException;
+ import java.awt.GraphicsEnvironment;
 
 /**
  *
@@ -18,6 +23,7 @@ public class ElegirPlantilla extends javax.swing.JFrame {
     public ElegirPlantilla() {
         initComponents();
         cambiarColorDeFondo();
+        cargarFuentePersonalizada();
         jButton1.addActionListener(e -> abrirInicio());
         jButton8.addActionListener(e -> abrirElegirPlantilla());
 
@@ -29,6 +35,55 @@ public class ElegirPlantilla extends javax.swing.JFrame {
 
         // Cambiar el color de fondo del JFrame
         getContentPane().setBackground(colorPersonalizado);
+    }
+
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            //agregarMenuLateral(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); //LOGO
+        jButton8.setFont(fuentePersonalizada);// Seleccionar
+
+        // Aplica la fuente a todos los JLabel
+        jLabel1.setFont(fuentePersonalizada);//Paso 1
+
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        //Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
+        //Font otrosSubtitulos = fuenteBase.deriveFont(26f); // Tamaño de otros Subtitulos
+        //Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+ 
+
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton8.setFont(textoBotones);
+ 
+        // Aplica la fuente a los JLabel
+        jLabel1.setFont(subtitulo);
+
+
     }
 
     /**
@@ -108,7 +163,7 @@ public class ElegirPlantilla extends javax.swing.JFrame {
                                                                         .addGap(475, 475, 475)
                                                                         .addComponent(jLabel1,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                327,
+                                                                                970,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGroup(layout.createSequentialGroup()
                                                                         .addComponent(jButton2)
@@ -136,7 +191,7 @@ public class ElegirPlantilla extends javax.swing.JFrame {
                                                                 .createSequentialGroup()
                                                                 .addGap(72, 72, 72)
                                                                 .addComponent(jLabel1,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 32,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 44,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
