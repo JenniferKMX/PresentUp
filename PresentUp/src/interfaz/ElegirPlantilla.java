@@ -7,7 +7,12 @@ package interfaz;
 
  import java.awt.Color;
  import java.io.IOException;
- import java.awt.Font;
+
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+
+import java.awt.Font;
  import java.awt.FontFormatException;
  import java.awt.GraphicsEnvironment;
 
@@ -24,11 +29,31 @@ public class ElegirPlantilla extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
+        configurarTeclaF1();
         jButton1.addActionListener(e -> abrirInicio());
         jButton8.addActionListener(e -> abrirElegirPlantilla());
 
     }
 
+    // //esto es lo de ayuda
+    private void configurarTeclaF1() { //esto es lo de ayuda
+        // Asociar la tecla F1 a una acción específica
+        String actionKey = "abrirAyuda";
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke("F1"), actionKey);
+        getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                abrirAyuda(); //esto es lo de ayuda
+            }
+        });
+    }
+
+    private void abrirAyuda() { //esto es lo de ayuda
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true);    // Muestra la ventana
+        this.dispose(); 
+    }
     private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
         Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
