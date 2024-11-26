@@ -6,7 +6,10 @@ package interfaz;
 
  import java.awt.Color;
  import java.io.IOException;
- import java.awt.Font;
+
+import javax.swing.JTextField;
+
+import java.awt.Font;
  import java.awt.FontFormatException;
  import java.awt.GraphicsEnvironment;
 
@@ -438,5 +441,36 @@ public class DatosBasicos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    // End of variables declaration                   
+    // End of variables declaration           
+    
+    //nombre de la empresa
+      public JTextField getNombreEmpresa() {
+        return jTextField4;
+    }
+
+    //eslogan de la empresa
+    public JTextField getEslogan() {
+        return jTextField2;
+    }
+
+    //¿quienes somos?
+    public JTextField getQuienesSomos() {
+        return jTextField3;
+    }
+
+    //nombre fundador:
+    public JTextField getNombreFundador() {
+        return jTextField5;
+    }
+
+    //cargo fundador:
+        public JTextField getCargoFundador() {
+            return jTextField1;
+        }
+
+      //cargo fundador:
+      public JTextField getBiografia() {
+        return jTextField6;
+    }
+
 }
