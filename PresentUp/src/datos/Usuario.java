@@ -2,7 +2,7 @@ package datos;
 
 import javax.imageio.ImageIO;
 
-public class Usuario {
+public class Usuario extends Proyecto {
 
     private String nom;
     private String apes;
@@ -11,6 +11,10 @@ public class Usuario {
     private String pref;
     private String tlf;
     ImageIO foto;
+
+    public int getId() {
+        return super.id;
+    }
 
     public String getNom() {
         return this.nom;
@@ -34,6 +38,10 @@ public class Usuario {
 
     public String getTlf() {
         return this.tlf;
+    }
+
+    public void setId() {
+        this.id = super.id;
     }
 
     public void setNom(String nom) {

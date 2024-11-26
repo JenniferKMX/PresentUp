@@ -1,11 +1,15 @@
 package datos;
 
-public class Financiacion {
+public class Financiacion extends Proyecto {
 
     private float eurosSolicitados;
     private String usoFondos;
     private String proyeccionIngresos;
     private String proyeccionGastos;
+
+    public int getId() {
+        return super.id;
+    }
 
     public float getEurosSolicitados() {
         return this.eurosSolicitados;
@@ -21,6 +25,10 @@ public class Financiacion {
 
     public String getProyeccionGastos() {
         return this.proyeccionGastos;
+    }
+
+    public void setId() {
+        this.id = super.id;
     }
 
     public void setEurosSolicitados(float eurosSolicitados) {

@@ -2,12 +2,16 @@ package datos;
 
 import javax.imageio.ImageIO;
 
-public class Fundador {
+public class Fundador extends Proyecto {
 
     private String nombre;
     private String cargo;
     private String biograf;
     ImageIO imagen;
+
+    public int getId() {
+        return super.id;
+    }
 
     public String getNombre() {
         return this.nombre;
@@ -23,6 +27,10 @@ public class Fundador {
 
     public ImageIO getImagen() {
         return this.imagen;
+    }
+
+    public void setId() {
+        this.id = super.id;
     }
 
     public void setNombre(String nombre) {
