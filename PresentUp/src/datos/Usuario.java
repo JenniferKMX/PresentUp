@@ -12,10 +12,6 @@ public class Usuario extends Proyecto {
     private String tlf;
     ImageIO foto;
 
-    public int getId() {
-        return super.id;
-    }
-
     public String getNom() {
         return this.nom;
     }
@@ -38,10 +34,6 @@ public class Usuario extends Proyecto {
 
     public String getTlf() {
         return this.tlf;
-    }
-
-    public void setId() {
-        this.id = super.id;
     }
 
     public void setNom(String nom) {
