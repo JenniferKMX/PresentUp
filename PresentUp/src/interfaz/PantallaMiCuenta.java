@@ -18,10 +18,32 @@ public class PantallaMiCuenta extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         agregarMenuLateral();
+        configurarTeclaF1();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirEditarMiCuenta());
         jButton2.addActionListener(e -> abrirInicio());
     }
+
+// //esto es lo de ayuda
+private void configurarTeclaF1() { //esto es lo de ayuda
+    // Asociar la tecla F1 a una acción específica
+    String actionKey = "abrirAyuda";
+    getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+            .put(KeyStroke.getKeyStroke("F1"), actionKey);
+    getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            abrirAyuda(); //esto es lo de ayuda
+        }
+    });
+}
+
+private void abrirAyuda() { //esto es lo de ayuda
+    Ayuda ayuda = new Ayuda();
+    ayuda.setVisible(true);    // Muestra la ventana
+    this.dispose(); 
+}
+
     private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
         Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]

@@ -23,10 +23,30 @@ public class CrearCuenta extends javax.swing.JFrame {
         initComponents();
         cargarFuentePersonalizada();
         cambiarColorDeFondo();
+        configurarTeclaF1();
         jButton2.addActionListener(e -> abrirInicio());
         jButton1.addActionListener(e -> abrirInicioSesion());
     }
 
+    // //esto es lo de ayuda
+    private void configurarTeclaF1() { //esto es lo de ayuda
+        // Asociar la tecla F1 a una acción específica
+        String actionKey = "abrirAyuda";
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke("F1"), actionKey);
+        getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                abrirAyuda(); //esto es lo de ayuda
+            }
+        });
+    }
+
+    private void abrirAyuda() { //esto es lo de ayuda
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true);    // Muestra la ventana
+        this.dispose(); 
+    }
  private void cargarFuentePersonalizada() {
         try {
             // Ruta al archivo de la fuente en tu proyecto

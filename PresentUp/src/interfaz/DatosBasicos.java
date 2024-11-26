@@ -4,11 +4,23 @@ package interfaz;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.io.IOException;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+=======
+ import java.awt.Color;
+ import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+import java.awt.Font;
+ import java.awt.FontFormatException;
+ import java.awt.GraphicsEnvironment;
+>>>>>>> c51c5a403c843cdc055a15099d4893ee53cfb233
 
 /**
  *
@@ -23,11 +35,31 @@ public class DatosBasicos extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
+        configurarTeclaF1();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirAniadirFund());
         jButton5.addActionListener(e -> abrirFormProduct());
     }
 
+    // //esto es lo de ayuda
+    private void configurarTeclaF1() { //esto es lo de ayuda
+        // Asociar la tecla F1 a una acción específica
+        String actionKey = "abrirAyuda";
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke("F1"), actionKey);
+        getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                abrirAyuda(); //esto es lo de ayuda
+            }
+        });
+    }
+
+    private void abrirAyuda() { //esto es lo de ayuda
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true);    // Muestra la ventana
+        this.dispose(); 
+    }
     private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
         Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
@@ -507,5 +539,45 @@ public class DatosBasicos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+<<<<<<< HEAD
     // End of variables declaration
+=======
+    // End of variables declaration           
+    
+    //nombre de la empresa
+      public JTextField getNombreEmpresa() {
+        return jTextField4;
+    }
+
+    //eslogan de la empresa
+    public JTextField getEslogan() {
+        return jTextField2;
+    }
+
+    //¿quienes somos?
+    public JTextField getQuienesSomos() {
+        return jTextField3;
+    }
+
+    //nombre fundador:
+    public JTextField getNombreFundador() {
+        return jTextField5;
+    }
+
+    //cargo fundador:
+        public JTextField getCargoFundador() {
+            return jTextField1;
+        }
+
+      //cargo fundador:
+      public JTextField getBiografia() {
+        return jTextField6;
+    }
+
+    //botón siguiente (guardado de esta parte del formulario)
+    public JButton getSiguiente(){
+        return jButton5;
+    }
+
+>>>>>>> c51c5a403c843cdc055a15099d4893ee53cfb233
 }

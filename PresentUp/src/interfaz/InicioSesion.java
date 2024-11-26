@@ -7,6 +7,10 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,11 +29,31 @@ public class InicioSesion extends javax.swing.JFrame {
         initComponents();
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
+        configurarTeclaF1(); 
         jButton2.addActionListener(e -> abrirInicio());
         jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
 
-    
+    ////esto es lo de ayuda
+    private void configurarTeclaF1() { //esto es lo de ayuda
+        // Asociar la tecla F1 a una acción específica
+        String actionKey = "abrirAyuda";
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke("F1"), actionKey);
+        getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                abrirAyuda(); //esto es lo de ayuda
+            }
+        });
+    }
+
+    private void abrirAyuda() { //esto es lo de ayuda
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true);    // Muestra la ventana
+        this.dispose(); 
+    }
+
     /**
      * Método para cargar la fuente personalizada y aplicarla al jTextField1
      */
