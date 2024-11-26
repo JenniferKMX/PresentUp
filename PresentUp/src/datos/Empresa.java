@@ -6,6 +6,12 @@ public class Empresa extends Proyecto {
     private String eslogan;
     private String valores;
 
+    public Empresa(String nombre, String eslogan, String valores){
+        this.nombre = nombre;
+        this.eslogan = eslogan;
+        this.valores = valores;
+    }
+
     public int getId() {
         return super.id;
     }

@@ -7,6 +7,7 @@ package interfaz;
  import java.awt.Color;
  import java.io.IOException;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import java.awt.Font;
@@ -471,6 +472,11 @@ public class DatosBasicos extends javax.swing.JFrame {
       //cargo fundador:
       public JTextField getBiografia() {
         return jTextField6;
+    }
+
+    //botón siguiente (guardado de esta parte del formulario)
+    public JButton getSiguiente(){
+        return jButton5;
     }
 
 }
