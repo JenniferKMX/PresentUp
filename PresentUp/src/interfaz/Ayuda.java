@@ -15,6 +15,13 @@ public class Ayuda extends javax.swing.JFrame {
          */
         public Ayuda() {
                 initComponents();
+                jButton1.addActionListener(e -> abrirInicioTrasLog());
+                jButton2.addActionListener(e -> abrirInicioTrasLog());
+        }
+
+        private void abrirInicioTrasLog() {
+                new InicioTrasLog().setVisible(true);
+                this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
         }
 
         /**
