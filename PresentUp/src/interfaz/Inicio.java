@@ -11,6 +11,8 @@ import javax.swing.KeyStroke;
 
 import java.awt.Color;
 
+import java.awt.event.KeyEvent;
+
 
 public class Inicio extends javax.swing.JFrame {
 
@@ -19,6 +21,7 @@ public class Inicio extends javax.swing.JFrame {
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton2.addActionListener(e -> abrirSaberMas());
         jButton3.addActionListener(e -> abrirInicioSesion());
         jButton4.addActionListener(e -> abrirCrearCuenta());
@@ -37,6 +40,27 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
+    
+
+private void configurarTeclaEnter() {
+    // Asocia la tecla ENTER a la acción de los botones
+    configurarAccionBoton(jButton2, "clicSaberMas", this::abrirSaberMas);
+    configurarAccionBoton(jButton3, "clicIniciarSesion", this::abrirInicioSesion);
+    configurarAccionBoton(jButton4, "clicCrearCuenta", this::abrirCrearCuenta);
+    // Si tienes otro botón 'Ver Todos', puedes añadirlo de la misma forma
+}
+
+private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+    // Asocia la tecla ENTER al botón especificado
+    boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+    boton.getActionMap().put(actionKey, new AbstractAction() {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            accion.run();  // Ejecuta la acción asociada al botón
+        }
+    });
+}
+
 
     private void abrirAyuda() { //esto es lo de ayuda
         Ayuda ayuda = new Ayuda();

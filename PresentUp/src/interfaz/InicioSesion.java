@@ -6,7 +6,7 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
-
+import java.awt.event.*;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
@@ -30,6 +30,7 @@ public class InicioSesion extends javax.swing.JFrame {
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
         configurarTeclaF1(); 
+        configurarTeclaEnter();
         jButton2.addActionListener(e -> abrirInicio());
         jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
@@ -44,6 +45,23 @@ public class InicioSesion extends javax.swing.JFrame {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 abrirAyuda(); //esto es lo de ayuda
+            }
+        });
+    }
+
+    private void configurarTeclaEnter() {
+        // Asocia la tecla ENTER a la acción de los botones
+        configurarAccionBoton(jButton1, "clicSaberMas", this::abrirInicioTrasLog);   
+        // Si tienes otro botón 'Ver Todos', puedes añadirlo de la misma forma
+    }
+
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run();  // Ejecuta la acción asociada al botón
             }
         });
     }
