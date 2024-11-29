@@ -7,6 +7,9 @@ public class Financiacion extends Proyecto {
     private String proyeccionIngresos;
     private String proyeccionGastos;
 
+    public Financiacion() {
+    }
+
     public int getId() {
         return super.id;
     }

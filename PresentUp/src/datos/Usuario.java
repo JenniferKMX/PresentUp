@@ -12,6 +12,9 @@ public class Usuario extends Proyecto {
     private String tlf;
     ImageIO foto;
 
+    public Usuario() {
+    }
+
     public String getNom() {
         return this.nom;
     }

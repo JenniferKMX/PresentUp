@@ -5,6 +5,9 @@ public class ProductoServicio extends Proyecto {
     private String descripcion;
     private String publico;
 
+    public ProductoServicio() {
+    }
+
     public int getId() {
         return super.id;
     }

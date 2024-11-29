@@ -9,11 +9,14 @@ public class Fundador extends Proyecto {
     private String biograf;
     ImageIO imagen;
 
-    public Fundador(String nombre, String cargo, String biograf){
+    public Fundador() {
+    }
+
+    public Fundador(String nombre, String cargo, String biograf) {
         this.nombre = nombre;
         this.cargo = cargo;
         this.biograf = biograf;
-        
+
     }
 
     public int getId() {
