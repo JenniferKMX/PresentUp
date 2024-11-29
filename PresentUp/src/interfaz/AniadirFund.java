@@ -10,7 +10,9 @@ import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 import java.awt.Color;
@@ -458,4 +460,40 @@ public class AniadirFund extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration
+
+     // nombre fundador:
+    public JTextField getNombreFundador2() {
+        return jTextField5;
+    }
+
+    // cargo fundador:
+    public JTextField getCargoFundador2() {
+        return jTextField1;
+    }
+
+    // cargo fundador:
+    public JTextField getBiografia2() {
+        return jTextField6;
+    }
+
+     // nombre fundador:
+     public JTextField getNombreFundador3() {
+        return jTextField8;
+    }
+
+    // cargo fundador:
+    public JTextField getCargoFundador3() {
+        return jTextField2;
+    }
+
+    // cargo fundador:
+    public JTextField getBiografia3() {
+        return jTextField7;
+    }
+
+    public JButton guardar() {
+        return jButton5;
+    }
+
+
 }
