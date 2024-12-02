@@ -222,4 +222,5 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
     public String getNombreProyecto() {
         return jTextField1.getText();
     }
+
 }
