@@ -7,6 +7,7 @@ package interfaz;
 import java.awt.Color;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
@@ -27,8 +28,8 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
         jButton2.addActionListener(e -> abrirPresFormulario());
     }
 
-// //esto es lo de ayuda
-    private void configurarTeclaF1() { //esto es lo de ayuda
+    // //esto es lo de ayuda
+    private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
         String actionKey = "abrirAyuda";
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
@@ -36,15 +37,15 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
         getRootPane().getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                abrirAyuda(); //esto es lo de ayuda
+                abrirAyuda(); // esto es lo de ayuda
             }
         });
     }
 
-    private void abrirAyuda() { //esto es lo de ayuda
+    private void abrirAyuda() { // esto es lo de ayuda
         Ayuda ayuda = new Ayuda();
-        ayuda.setVisible(true);    // Muestra la ventana
-        this.dispose(); 
+        ayuda.setVisible(true); // Muestra la ventana
+        this.dispose();
     }
 
     private void cambiarColorDeFondo() {
@@ -213,4 +214,12 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration
+
+    public JButton getSiguiente() {
+        return jButton2;
+    }
+
+    public String getNombreProyecto() {
+        return jTextField1.getText();
+    }
 }

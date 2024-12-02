@@ -37,7 +37,7 @@ public class VPlantillas extends javax.swing.JFrame {
         agregarMenuLateral();
         cargarFuentePersonalizada(); // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
-        configurarTeclaF1(); 
+        configurarTeclaF1();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton3.addActionListener(e -> abrirPlantilla1(e));
         jButton4.addActionListener(e -> abrirPlantilla2(e));
@@ -45,8 +45,8 @@ public class VPlantillas extends javax.swing.JFrame {
         jButton6.addActionListener(e -> abrirPlantilla4(e));
     }
 
-////esto es lo de ayuda
-    private void configurarTeclaF1() { //esto es lo de ayuda
+    ////esto es lo de ayuda
+    private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
         String actionKey = "abrirAyuda";
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
@@ -54,15 +54,15 @@ public class VPlantillas extends javax.swing.JFrame {
         getRootPane().getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                abrirAyuda(); //esto es lo de ayuda
+                abrirAyuda(); // esto es lo de ayuda
             }
         });
     }
 
-    private void abrirAyuda() { //esto es lo de ayuda
+    private void abrirAyuda() { // esto es lo de ayuda
         Ayuda ayuda = new Ayuda();
-        ayuda.setVisible(true);    // Muestra la ventana
-        this.dispose(); 
+        ayuda.setVisible(true); // Muestra la ventana
+        this.dispose();
     }
 
     private void abrirPlantilla1(java.awt.event.ActionEvent evt) {
