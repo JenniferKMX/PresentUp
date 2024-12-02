@@ -10,6 +10,14 @@ public class Financiacion extends Proyecto {
     public Financiacion() {
     }
 
+    public Financiacion(float eurosSolicitados, String usoFondos, String proyeccionIngresos, String proyeccionGastos) {
+        this.eurosSolicitados = eurosSolicitados;
+        this.usoFondos = usoFondos;
+        this.proyeccionIngresos = proyeccionIngresos;
+        this.proyeccionGastos = proyeccionGastos;
+    }
+
+
     public float getEurosSolicitados() {
         return this.eurosSolicitados;
     }

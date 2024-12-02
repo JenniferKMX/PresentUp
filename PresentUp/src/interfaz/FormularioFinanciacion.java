@@ -8,6 +8,7 @@ package interfaz;
  import java.io.IOException;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
@@ -424,4 +425,26 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration
+
+    public  String getEuros(){
+        return  jTextField1.getText();
+    }
+
+    public  String getMotivoDinero(){
+        return jTextArea1.getText();
+    }
+
+    public  String getIngresosPoryectados(){
+        return jTextArea2.getText();
+    }
+
+    public  String getGastosPoryectados(){
+        return jTextArea3.getText();
+    }
+
+    public JButton getFinalizar(){
+        return jButton3;
+
+    }
+ 
 }
