@@ -5,7 +5,7 @@ package interfaz;
  */
 
 import java.awt.Color;
-
+import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -24,9 +24,25 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicio());
         jButton2.addActionListener(e -> abrirPresFormulario());
     }
+
+    private void configurarTeclaEnter() { 
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirPresFormulario); 
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
 
     // //esto es lo de ayuda
     private void configurarTeclaF1() { // esto es lo de ayuda

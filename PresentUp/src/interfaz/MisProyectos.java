@@ -23,8 +23,25 @@ public class MisProyectos extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
+        jButton8.addActionListener(e -> abrirInicioTrasLog());
     }
+
+    private void configurarTeclaEnter() { 
+        configurarAccionBoton(jButton8, "clicSaberMas", this::abrirInicioTrasLog); 
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
 
 // //esto es lo de ayuda
     private void configurarTeclaF1() { //esto es lo de ayuda

@@ -9,10 +9,14 @@ import javax.swing.KeyStroke;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.Desktop;
-
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -22,9 +26,10 @@ public class InicioTrasLog extends javax.swing.JFrame {
 
     public InicioTrasLog() {
         initComponents();
-        agregarMenuLateral();
         cambiarColorDeFondo();
+        cargarFuentePersonalizada();
         configurarTeclaF1();
+        configurarTeclaEnter(); 
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> abrirInicio());
         jButton4.addActionListener(e -> abrirVerPlantillas());
@@ -34,6 +39,21 @@ public class InicioTrasLog extends javax.swing.JFrame {
         jButton8.addActionListener(e -> abrirPlantilla4(e));
     }
 
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);    
+        configurarAccionBoton(jButton4, "clicSaberMas", this::abrirVerPlantillas);    
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
     // //esto es lo de ayuda
     private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
@@ -52,6 +72,81 @@ public class InicioTrasLog extends javax.swing.JFrame {
         Ayuda ayuda = new Ayuda();
         ayuda.setVisible(true); // Muestra la ventana
         this.dispose();
+    }
+
+private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            agregarMenuLateral(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); //LOGO
+        jButton2.setFont(fuentePersonalizada);// Salir 
+        jButton3.setFont(fuentePersonalizada);// Btn Menu
+        jButton4.setFont(fuentePersonalizada);// Guardar
+        jButton5.setFont(fuentePersonalizada);// +
+
+        // Aplica la fuente a todos los JLabel
+       /*  jLabel1.setFont(fuentePersonalizada);//Titulo 
+        jLabel2.setFont(fuentePersonalizada);//Subtitulo Seccion1
+        jLabel3.setFont(fuentePersonalizada);//Editar Mi Cuenta 
+            
+        // Aplica la fuente a los JTextField
+        jTextField4.setFont(fuentePersonalizada);// Texto Email
+        jTextField5.setFont(fuentePersonalizada);// Texto Contraseña
+        jTextField6.setFont(fuentePersonalizada);// Texto Nombre 
+        jTextField7.setFont(fuentePersonalizada);// Texto Apellido
+        jTextField8.setFont(fuentePersonalizada);// Texto Telefono
+
+        //Aplicar la fuente a los elemento del Menu */
+
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
+        Font otrosSubtitulos = fuenteBase.deriveFont(26f); // Tamaño de otros Subtitulos
+        //Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+ 
+
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton2.setFont(textoBotones);
+        jButton3.setFont(textoBotones);
+        jButton4.setFont(textoBotones);
+        jButton5.setFont(textoBotones);
+        
+
+        // Aplica la fuente a los JLabel
+        //jLabel1.setFont(titulos);
+        //jLabel2.setFont(subtitulo);   
+       // jLabel3.setFont(otrosSubtitulos);  
+       
+        // Aplica la fuente a los JTextField
+        //jTextField4.setFont(textoBotones);
+       // jTextField5.setFont(textoBotones);
+        //jTextField6.setFont(textoBotones);
+       // jTextField7.setFont(textoBotones);
+       // jTextField8.setFont(textoBotones);
+
     }
 
     private void abrirPlantilla1(java.awt.event.ActionEvent evt) {
@@ -134,24 +229,24 @@ public class InicioTrasLog extends javax.swing.JFrame {
         getContentPane().setBackground(colorPersonalizado);
     }
 
-    private void agregarMenuLateral() {
+    private void agregarMenuLateral(Font fuentePersonalizada) {
         // Crear el menú desplegable (JPopupMenu)
         JPopupMenu popupMenu = new JPopupMenu();
-
+    
         // Crear los elementos del menú
         JMenuItem nuevoProyecto = new JMenuItem("Nuevo proyecto");
         JMenuItem misProyectos = new JMenuItem("Mis proyectos");
         JMenuItem plantillas = new JMenuItem("Plantillas");
         JMenuItem miCuenta = new JMenuItem("Mi cuenta");
         JMenuItem ayuda = new JMenuItem("Ayuda");
-
+    
         // Agregar los elementos al menú desplegable
         popupMenu.add(nuevoProyecto);
         popupMenu.add(misProyectos);
         popupMenu.add(plantillas);
         popupMenu.add(miCuenta);
         popupMenu.add(ayuda);
-
+    
         // Agregar un ActionListener al botón jButton3 para mostrar el menú cuando se
         // hace clic
         jButton3.addActionListener(new ActionListener() {
@@ -161,13 +256,29 @@ public class InicioTrasLog extends javax.swing.JFrame {
                 popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
             }
         });
-
+    
+        // Configurar la tecla ENTER para que también muestre el menú
+        jButton3.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "mostrarMenu");
+        jButton3.getActionMap().put("mostrarMenu", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
+            }
+        });
+    
+        // Configurar las acciones de los elementos del menú
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
         // Falta mis proyectos
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
         // Falta Ayuda
-
+    
+        // Aplicar la fuente personalizada a los elementos del menú
+        nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
+        misProyectos.setFont(fuentePersonalizada.deriveFont(18f));
+        plantillas.setFont(fuentePersonalizada.deriveFont(18f));
+        miCuenta.setFont(fuentePersonalizada.deriveFont(18f));
+        ayuda.setFont(fuentePersonalizada.deriveFont(18f));
     }
 
     private void abrirInicioTrasLog() {

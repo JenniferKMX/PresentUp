@@ -29,11 +29,27 @@ public class DatosBasicos extends javax.swing.JFrame {
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirAniadirFund());
         jButton5.addActionListener(e -> abrirFormProduct());
     }
 
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton4, "clicSaberMas", this::abrirAniadirFund);    
+        configurarAccionBoton(jButton5, "clicSaberMas", this::abrirFormProduct);
+    }
+
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run();  // Ejecuta la acción asociada al botón
+            }
+        });
+    }
     // //esto es lo de ayuda
     private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica

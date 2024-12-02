@@ -15,6 +15,7 @@ import javax.swing.KeyStroke;
 import java.awt.Font;
  import java.awt.FontFormatException;
  import java.awt.GraphicsEnvironment;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -30,10 +31,26 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton2.addActionListener(e -> abrirFormularioProductoServicio());
         jButton3.addActionListener(e -> abrirProyectoListo());
     }
 
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirFormularioProductoServicio);       
+        configurarAccionBoton(jButton3, "clicSaberMas", this::abrirProyectoListo); 
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
     // //esto es lo de ayuda
     private void configurarTeclaF1() { //esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
@@ -138,6 +155,7 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
 
 
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

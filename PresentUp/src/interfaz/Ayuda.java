@@ -4,21 +4,53 @@ package interfaz;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author DAM2
- */
-public class Ayuda extends javax.swing.JFrame {
-
-        /**
-         * Creates new form AyudaPrueba
-         */
-        public Ayuda() {
-                initComponents();
-                jButton1.addActionListener(e -> abrirInicioTrasLog());
-                jButton2.addActionListener(e -> abrirInicioTrasLog());
-        }
-
+ import javax.swing.AbstractAction;
+ import javax.swing.JComponent;
+ import javax.swing.KeyStroke;
+ import java.awt.Color;
+ import java.awt.Font;
+ import java.awt.FontFormatException;
+ import java.awt.GraphicsEnvironment;
+ import java.io.IOException;
+ import java.awt.event.*;
+ import javax.swing.AbstractAction;
+ import javax.swing.JButton;
+ import javax.swing.JComponent;
+ import javax.swing.JTextField;
+ import javax.swing.KeyStroke;
+ 
+ /**
+  *
+  * @author DAM2
+  */
+ public class Ayuda extends javax.swing.JFrame {
+ 
+         /**
+          * Creates new form AyudaPrueba
+          */
+         public Ayuda() {
+                 initComponents();
+                 configurarTeclaEnter();
+                 jButton1.addActionListener(e -> abrirInicioTrasLog());
+                 jButton2.addActionListener(e -> abrirInicioTrasLog());
+         }
+ 
+         private void configurarTeclaEnter() {
+                 // Asocia la tecla ENTER a la acción de los botones
+                 configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicioTrasLog);    
+                 
+         }
+         private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+                 // Asocia la tecla ENTER al botón especificado
+                 boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+                 boton.getActionMap().put(actionKey, new AbstractAction() {
+                     @Override
+                     public void actionPerformed(java.awt.event.ActionEvent e) {
+                         accion.run();  // Ejecuta la acción asociada al botón
+                     }
+                 });
+         }
+         
         private void abrirInicioTrasLog() {
                 new InicioTrasLog().setVisible(true);
                 this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio

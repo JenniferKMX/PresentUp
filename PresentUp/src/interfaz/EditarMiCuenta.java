@@ -22,13 +22,33 @@ public class EditarMiCuenta extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
-
+        configurarTeclaEnter();
+        configurarTeclaF1();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirPantallaMiCuenta());
         jButton2.addActionListener(e -> abrirInicio());
     }
 
-//configurarTeclaF1(); //esto es lo de ayuda
+
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);    
+        configurarAccionBoton(jButton4, "clicSaberMas", this::abrirPantallaMiCuenta);    
+        //configurarAccionBoton(jButton5, "clicSaberMas", this::abrirFormProduct); boton +
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
+ 
+ 
+// //esto es lo de ayuda
 private void configurarTeclaF1() { //esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
         String actionKey = "abrirAyuda";
@@ -134,44 +154,55 @@ private void cargarFuentePersonalizada() {
     private void agregarMenuLateral(Font fuentePersonalizada) {
         // Crear el menú desplegable (JPopupMenu)
         JPopupMenu popupMenu = new JPopupMenu();
-
+    
         // Crear los elementos del menú
         JMenuItem nuevoProyecto = new JMenuItem("Nuevo proyecto");
         JMenuItem misProyectos = new JMenuItem("Mis proyectos");
         JMenuItem plantillas = new JMenuItem("Plantillas");
         JMenuItem miCuenta = new JMenuItem("Mi cuenta");
         JMenuItem ayuda = new JMenuItem("Ayuda");
-
+    
         // Agregar los elementos al menú desplegable
         popupMenu.add(nuevoProyecto);
         popupMenu.add(misProyectos);
         popupMenu.add(plantillas);
         popupMenu.add(miCuenta);
         popupMenu.add(ayuda);
-
-        // Agregar un ActionListener al botón jButton2 para mostrar el menú cuando se
+    
+        // Agregar un ActionListener al botón jButton3 para mostrar el menú cuando se
         // hace clic
         jButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Mostrar el menú desplegable justo debajo del botón jButton2
+                // Mostrar el menú desplegable justo debajo del botón jButton3
                 popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
             }
         });
-
+    
+        // Configurar la tecla ENTER para que también muestre el menú
+        jButton3.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "mostrarMenu");
+        jButton3.getActionMap().put("mostrarMenu", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
+            }
+        });
+    
+        // Configurar las acciones de los elementos del menú
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
         // Falta mis proyectos
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
         // Falta Ayuda
-
+    
+        // Aplicar la fuente personalizada a los elementos del menú
         nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
         misProyectos.setFont(fuentePersonalizada.deriveFont(18f));
         plantillas.setFont(fuentePersonalizada.deriveFont(18f));
         miCuenta.setFont(fuentePersonalizada.deriveFont(18f));
         ayuda.setFont(fuentePersonalizada.deriveFont(18f));
-
     }
+    
 
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);

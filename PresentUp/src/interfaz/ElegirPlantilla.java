@@ -30,11 +30,27 @@ public class ElegirPlantilla extends javax.swing.JFrame {
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicio());
         jButton8.addActionListener(e -> abrirElegirPlantilla());
 
     }
 
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton8, "clicSaberMas", this::abrirElegirPlantilla);       
+        //configurarAccionBoton(jButton5, "clicSaberMas", this::abrirFormProduct); boton +
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
     // //esto es lo de ayuda
     private void configurarTeclaF1() { //esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
