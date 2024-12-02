@@ -31,9 +31,29 @@ public class AniadirFund extends javax.swing.JFrame {
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
         configurarTeclaF1();
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> volverDatosBasicos());
         jButton5.addActionListener(e -> guardarFundadores());
+    }
+
+    private void configurarTeclaEnter() {
+        // Asocia la tecla ENTER a la acción de los botones
+        configurarAccionBoton(jButton2, "clicSaberMas", this::volverDatosBasicos);    
+        //configurarAccionBoton(jButton3, "clicSaberMas", this::abrirInicioTrasLog);  Botones de subir imagen
+        //configurarAccionBoton(jButton4, "clicSaberMas", this::abrirInicioTrasLog);  Botones de subir imagen
+        configurarAccionBoton(jButton5, "clicSaberMas", this::guardarFundadores);
+    }
+
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run();  // Ejecuta la acción asociada al botón
+            }
+        });
     }
 
     // //esto es lo de ayuda
