@@ -21,9 +21,9 @@ public class ControladorEmpresa {
     }
     private void guardarEmpresa(){
 
-        String nombreEmpresa = datos.getNombreEmpresa().getText();
-        String slogan = datos.getEslogan().getText();
-        String quienesSomos = datos.getQuienesSomos().getText();
+        String nombreEmpresa = datos.getNombreEmpresa();
+        String slogan = datos.getEslogan();
+        String quienesSomos = datos.getQuienesSomos();
 
         Empresa empresa = new Empresa(nombreEmpresa, slogan, quienesSomos);
     }

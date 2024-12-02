@@ -3,7 +3,9 @@ package interfaz;
 import java.awt.Color;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 /*
@@ -248,4 +250,19 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
     private javax.swing.JLabel JLabel4;
     private javax.swing.JLabel JLabel5;
     // End of variables declaration//GEN-END:variables
+
+    // descripcion producto o servicio
+    public String getDescripcion() {
+        return jTextArea1.getText();
+    }
+
+    // cargo fundador:
+    public String getPublicoObjetivo() {
+        return jTextArea2.getText();
+    }
+
+    // botón siguiente (guardado de esta parte del formulario)
+    public JButton getSiguiente() {
+        return jButton3;
+    }
 }

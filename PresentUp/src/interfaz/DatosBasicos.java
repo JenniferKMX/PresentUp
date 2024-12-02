@@ -536,33 +536,33 @@ public class DatosBasicos extends javax.swing.JFrame {
     // End of variables declaration
 
     // nombre de la empresa
-    public JTextField getNombreEmpresa() {
-        return jTextField4;
+    public String getNombreEmpresa() {
+        return jTextField4.getText();
     }
 
     // eslogan de la empresa
-    public JTextField getEslogan() {
-        return jTextField2;
+    public String getEslogan() {
+        return jTextField2.getText();
     }
 
     // ¿quienes somos?
-    public JTextField getQuienesSomos() {
-        return jTextField3;
+    public String getQuienesSomos() {
+        return jTextField3.getText();
     }
 
     // nombre fundador:
-    public JTextField getNombreFundador() {
-        return jTextField5;
+    public String getNombreFundador() {
+        return jTextField5.getText();
     }
 
     // cargo fundador:
-    public JTextField getCargoFundador() {
-        return jTextField1;
+    public String getCargoFundador() {
+        return jTextField1.getText();
     }
 
     // cargo fundador:
-    public JTextField getBiografia() {
-        return jTextField6;
+    public String getBiografia() {
+        return jTextField6.getText();
     }
 
     // botón siguiente (guardado de esta parte del formulario)

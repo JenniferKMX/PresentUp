@@ -3,8 +3,6 @@ package controladores;
 import java.awt.event.ActionListener;
 
 import interfaz.AniadirFund;
-import interfaz.DatosBasicos;
-import datos.Empresa;
 import datos.Fundador;
 
 import java.awt.event.ActionEvent;
