@@ -27,6 +27,6 @@ public class ControladorProductoServicio {
         String descripcion = productoServicio.getDescripcion();
         String publico = productoServicio.getPublicoObjetivo();
 
-        ProductoServicio productoServicio = new productoServicio(descripcion, publico);
+        ProductoServicio productoServicio = new ProductoServicio(descripcion, publico);
     }
 }

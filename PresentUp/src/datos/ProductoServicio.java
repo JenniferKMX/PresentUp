@@ -8,6 +8,12 @@ public class ProductoServicio extends Proyecto {
     public ProductoServicio() {
     }
 
+    public ProductoServicio(String descripcion, String publico){
+        this.descripcion = descripcion;
+        this.publico = publico;
+
+    }
+
     public String getDescripcion() {
         return this.descripcion;
     }
