@@ -3,13 +3,13 @@ package controladores;
 import java.awt.event.ActionListener;
 
 import interfaz.FormularioFinanciacion;
-import financiacion.Financiacion;
+import datos.Financiacion;
 import java.awt.event.ActionEvent;
 
 public class ControladorFinanciacion{
     private FormularioFinanciacion financiacion;
 
-    public ControladorEmpresa(FormularioFinanciacion financiacion){
+    public ControladorFinanciacion(FormularioFinanciacion financiacion){
         this.financiacion = financiacion;
         // Agregar listener al botón de guardar
         this.financiacion.getFinalizar().addActionListener(new ActionListener() {
