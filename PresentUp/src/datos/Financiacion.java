@@ -10,10 +10,6 @@ public class Financiacion extends Proyecto {
     public Financiacion() {
     }
 
-    public int getId() {
-        return super.id;
-    }
-
     public float getEurosSolicitados() {
         return this.eurosSolicitados;
     }
@@ -28,10 +24,6 @@ public class Financiacion extends Proyecto {
 
     public String getProyeccionGastos() {
         return this.proyeccionGastos;
-    }
-
-    public void setId() {
-        this.id = super.id;
     }
 
     public void setEurosSolicitados(float eurosSolicitados) {

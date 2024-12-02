@@ -10,14 +10,12 @@ public class ProductoServicioDAO {
 
     public static ProductoServicio leer(DataInputStream dis) throws IOException {
         ProductoServicio prodserv = new ProductoServicio();
-        prodserv.setId();
         prodserv.setDescripcion(dis.readUTF());
         prodserv.setPublico(dis.readUTF());
         return prodserv;
     }
 
     public static void escribir(DataOutputStream dos, ProductoServicio prodserv) throws IOException {
-        dos.writeInt(prodserv.getId());
         dos.writeUTF(prodserv.getDescripcion());
         dos.writeUTF(prodserv.getPublico());
     }

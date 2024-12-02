@@ -15,10 +15,6 @@ public class Empresa extends Proyecto {
         this.valores = valores;
     }
 
-    public int getId() {
-        return super.id;
-    }
-
     public String getNomEmpresa() {
         return this.nombre;
     }
@@ -29,10 +25,6 @@ public class Empresa extends Proyecto {
 
     public String getValores() {
         return this.valores;
-    }
-
-    public void setId() {
-        this.id = super.id;
     }
 
     public void setNomEmpresa(String nombre) {

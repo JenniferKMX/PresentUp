@@ -19,10 +19,6 @@ public class Fundador extends Proyecto {
 
     }
 
-    public int getId() {
-        return super.id;
-    }
-
     public String getNombre() {
         return this.nombre;
     }
@@ -37,10 +33,6 @@ public class Fundador extends Proyecto {
 
     public ImageIO getImagen() {
         return this.imagen;
-    }
-
-    public void setId() {
-        this.id = super.id;
     }
 
     public void setNombre(String nombre) {

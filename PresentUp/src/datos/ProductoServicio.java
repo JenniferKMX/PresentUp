@@ -8,20 +8,12 @@ public class ProductoServicio extends Proyecto {
     public ProductoServicio() {
     }
 
-    public int getId() {
-        return super.id;
-    }
-
     public String getDescripcion() {
         return this.descripcion;
     }
 
     public String getPublico() {
         return this.publico;
-    }
-
-    public void setId() {
-        this.id = super.id;
     }
 
     public void setDescripcion(String descripcion) {
