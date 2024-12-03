@@ -268,10 +268,10 @@ private void cargarFuentePersonalizada() {
     
         // Configurar las acciones de los elementos del menú
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
-        // Falta mis proyectos
+        misProyectos.addActionListener(e -> abrirMisPoryectos());
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
-        // Falta Ayuda
+        ayuda.addActionListener(e -> abrirAyuda());
     
         // Aplicar la fuente personalizada a los elementos del menú
         nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
@@ -308,6 +308,10 @@ private void cargarFuentePersonalizada() {
 
     private void abrirPantallaMiCuenta() {
         new PantallaMiCuenta().setVisible(true);
+        this.dispose();
+    }
+    private void abrirMisPoryectos() {
+        new MisProyectos().setVisible(true);
         this.dispose();
     }
 

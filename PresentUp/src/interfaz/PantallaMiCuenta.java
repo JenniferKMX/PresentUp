@@ -182,10 +182,10 @@ private void abrirAyuda() { //esto es lo de ayuda
     
         // Configurar las acciones de los elementos del menú
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
-        // Falta mis proyectos
+        misProyectos.addActionListener(e -> abrirMisPoryectos());
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
-        // Falta Ayuda
+        ayuda.addActionListener(e -> abrirAyuda());
     
         // Aplicar la fuente personalizada a los elementos del menú
         nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
@@ -223,6 +223,10 @@ private void abrirAyuda() { //esto es lo de ayuda
         new PantallaMiCuenta().setVisible(true);
         this.dispose();
     }
+    private void abrirMisPoryectos() {
+        new MisProyectos().setVisible(true);
+        this.dispose();
+    }
 
 
     /**
@@ -257,7 +261,7 @@ private void abrirAyuda() { //esto es lo de ayuda
 
         jButton2.setText("Salir");
 
-        jButton3.setText("btn Menú");
+        jButton3.setText("Menú");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
