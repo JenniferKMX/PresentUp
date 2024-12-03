@@ -2,6 +2,7 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import interfaz.NombreNuevoPoryecto;
 import datos.Proyecto;
 
@@ -29,5 +30,22 @@ public class ControladorProyecto {
         // Crear y mostrar el proyecto
         Proyecto proyecto = new Proyecto(nombre);
         System.out.println("Se ha creado un proyecto: ID = " + proyecto.getId() + ", Nombre = " + proyecto.getNombre());
+
+        // Crear la carpeta del proyecto
+        crearCarpetaProyecto(proyecto);
     }
+
+    private void crearCarpetaProyecto(Proyecto proyecto) {
+        // Definir la ruta de la subcarpeta dentro de "ficheGenerados"
+        String ruta = proyecto.getNombre().concat(String.valueOf(proyecto.getId()));
+        File subCarpeta = new File(ruta);
+
+        // Intentar crear la subcarpeta
+        if (subCarpeta.mkdir()) {
+            System.out.println("Carpeta creada exitosamente en: " + ruta);
+        } else {
+            System.err.println("No se pudo crear la Carpeta en: " + ruta);
+        }
+    }
+
 }
