@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -23,9 +24,25 @@ public class PresentacionForm extends javax.swing.JFrame {
         initComponents();
         cambiarColorDeFondo();
         configurarTeclaF1(); 
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> abrirFormulario());
     }
+
+    private void configurarTeclaEnter() { 
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirFormulario); 
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
 
 ////esto es lo de ayuda
     private void configurarTeclaF1() { //esto es lo de ayuda

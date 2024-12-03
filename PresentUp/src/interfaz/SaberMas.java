@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -30,10 +31,25 @@ public class SaberMas extends javax.swing.JFrame {
         cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
         configurarTeclaF1(); 
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicio());
         jButton2.addActionListener(e -> abrirInicio());
     }
     
+    private void configurarTeclaEnter() { 
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio); 
+     }
+ 
+     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+         // Asocia la tecla ENTER al botón especificado
+         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+         boton.getActionMap().put(actionKey, new AbstractAction() {
+             @Override
+             public void actionPerformed(java.awt.event.ActionEvent e) {
+                 accion.run();  // Ejecuta la acción asociada al botón
+             }
+         });
+     }
 ////esto es lo de ayuda
     private void configurarTeclaF1() { //esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
