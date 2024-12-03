@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
 
 /**
  *
