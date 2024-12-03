@@ -1,8 +1,6 @@
 import javax.swing.SwingUtilities;
 import controladores.ControladorProyecto;
 import interfaz.NombreNuevoPoryecto;
-import datos.*;
-import java.io.File;
 
 public class PresentUpMain {
     public static void main(String[] args) {
