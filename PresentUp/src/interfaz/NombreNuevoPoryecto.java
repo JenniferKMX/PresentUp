@@ -29,20 +29,20 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
         jButton2.addActionListener(e -> abrirPresFormulario());
     }
 
-    private void configurarTeclaEnter() { 
-        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirPresFormulario); 
-     }
- 
-     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
-         // Asocia la tecla ENTER al botón especificado
-         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
-         boton.getActionMap().put(actionKey, new AbstractAction() {
-             @Override
-             public void actionPerformed(java.awt.event.ActionEvent e) {
-                 accion.run();  // Ejecuta la acción asociada al botón
-             }
-         });
-     }
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirPresFormulario);
+    }
+
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run(); // Ejecuta la acción asociada al botón
+            }
+        });
+    }
 
     // //esto es lo de ayuda
     private void configurarTeclaF1() { // esto es lo de ayuda
@@ -237,6 +237,13 @@ public class NombreNuevoPoryecto extends javax.swing.JFrame {
 
     public String getNombreProyecto() {
         return jTextField1.getText();
+    }
+
+    public void addCrearProyectoListener(java.util.function.Consumer<String> listener) {
+        jButton2.addActionListener(e -> {
+            String nombreProyecto = jTextField1.getText();
+            listener.accept(nombreProyecto);
+        });
     }
 
 }
