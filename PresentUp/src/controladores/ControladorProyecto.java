@@ -38,13 +38,13 @@ public class ControladorProyecto {
     private void crearCarpetaProyecto(Proyecto proyecto) {
         // Definir la ruta de la subcarpeta dentro de "ficheGenerados"
         String ruta = proyecto.getNombre().concat(String.valueOf(proyecto.getId()));
-        File subCarpeta = new File(ruta);
+        File nuevaCarpeta = new File("./" + ruta);
 
-        // Intentar crear la subcarpeta
-        if (subCarpeta.mkdir()) {
-            System.out.println("Carpeta creada exitosamente en: " + ruta);
+        // Intentar crear la carpeta
+        if (nuevaCarpeta.mkdir()) {
+            System.out.println("Carpeta creada exitosamente: " + nuevaCarpeta.getAbsolutePath());
         } else {
-            System.err.println("No se pudo crear la Carpeta en: " + ruta);
+            System.out.println("No se pudo crear la carpeta. Verifique si ya existe o si hay permisos adecuados.");
         }
     }
 
