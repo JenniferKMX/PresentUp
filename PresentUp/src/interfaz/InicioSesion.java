@@ -31,6 +31,7 @@ public class InicioSesion extends javax.swing.JFrame {
         cambiarColorDeFondo();
         configurarTeclaF1(); 
         configurarTeclaEnter();
+        cargarFuentePersonalizada();
         jButton2.addActionListener(e -> abrirInicio());
         jButton1.addActionListener(e -> abrirInicioTrasLog());
     }
@@ -75,24 +76,7 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Método para cargar la fuente personalizada y aplicarla al jTextField1
      */
-   private void cargarFuentePersonalizada() {
-    try {
-        // Ruta al archivo de la fuente en tu proyecto
-        String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
-        Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, new File(rutaFuente)).deriveFont(70f); // Cambiar el tamaño aquí
-        
-        // Registrar la fuente en el sistema (opcional)
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(fuentePersonalizada);
-
-        // Aplicar la fuente al jTextField1
-        jTextField1.setFont(fuentePersonalizada);
-        
-    } catch (IOException | FontFormatException e) {
-        e.printStackTrace();
-    }
-
-}
+  
     
      private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
@@ -112,6 +96,64 @@ public class InicioSesion extends javax.swing.JFrame {
         this.dispose();
     }
     
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); //LOGO
+        jButton2.setFont(fuentePersonalizada); //Atras
+       
+
+        // Aplica la fuente a todos los JLabel
+        jLabel1.setFont(fuentePersonalizada);//Titulo 
+        
+       
+
+        // Aplica la fuente a los JScrollPane
+        jTextField1.setFont(fuentePersonalizada);//En que se van a emplear 
+        jTextField2.setFont(fuentePersonalizada);//Ingresos proyectado
+        jTextField4.setFont(fuentePersonalizada);
+        
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        Font titulos = fuenteBase.deriveFont(60f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(25f); // Tamaño de los Subtitulos
+        //Font otrosSubtitulos = fuenteBase.deriveFont(20f); // Tamaño de otros Subtitulos
+        Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+       
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton1.setFont(textoBotones);
+
+        // Aplica la fuente a los JTextField
+        jLabel1.setFont(subtitulo); 
+      
+        jTextField1.setFont(titulos);
+        jTextField2.setFont(textoPlano);
+        jTextField4.setFont(textoPlano);
+    }
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,7 +215,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +230,7 @@ public class InicioSesion extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)

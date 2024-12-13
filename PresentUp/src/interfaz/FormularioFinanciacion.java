@@ -126,7 +126,7 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
 
     private void aplicarTamanosDeFuentes(Font fuenteBase) {
         // Definir diferentes tamaños de fuente
-        Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
+        Font titulos = fuenteBase.deriveFont(60f); // Tamaño de los Titulos
         Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
         Font otrosSubtitulos = fuenteBase.deriveFont(26f); // Tamaño de otros Subtitulos
         Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
@@ -248,7 +248,7 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 412,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286,
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 786,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(273, 273, 273)))
                                 .addGap(404, 404, 404))

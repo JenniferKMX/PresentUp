@@ -1,6 +1,9 @@
 package interfaz;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
@@ -8,6 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,6 +32,7 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
         cambiarColorDeFondo();
         configurarTeclaF1();
         configurarTeclaEnter();
+        cargarFuentePersonalizada();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton2.addActionListener(e -> abrirDatosBasicos());
         jButton3.addActionListener(e -> abrirDatosFinanc());
@@ -91,6 +96,69 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
         this.dispose();
     }
     
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+            
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            // Aplicar la fuente personalizada a los componentes
+            aplicarFuentePersonalizada(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {  
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
+        // Aplica la fuente a todos los botones
+        //jButton1.setFont(fuentePersonalizada); //LOGO
+        jButton2.setFont(fuentePersonalizada); //Atras
+        jButton3.setFont(fuentePersonalizada); //Finalizar
+
+        // Aplica la fuente a todos los JLabel
+        JLabel1.setFont(fuentePersonalizada);//Titulo 
+        JLabel2.setFont(fuentePersonalizada);//Seccion3 
+        JLabel3.setFont(fuentePersonalizada);//Cantidad de financiacion
+        JLabel4.setFont(fuentePersonalizada);//Uso de los fondos 
+        JLabel5.setFont(fuentePersonalizada);//Proyeccion financieras 
+       
+
+        // Aplica la fuente a los JScrollPane
+        jTextArea1.setFont(fuentePersonalizada);//En que se van a emplear 
+        jTextArea2.setFont(fuentePersonalizada);//Ingresos proyectado
+        
+        
+        aplicarTamanosDeFuentes(fuentePersonalizada);
+    }
+
+    private void aplicarTamanosDeFuentes(Font fuenteBase) {
+        // Definir diferentes tamaños de fuente
+        Font titulos = fuenteBase.deriveFont(60f); // Tamaño de los Titulos
+        Font subtitulo = fuenteBase.deriveFont(30f); // Tamaño de los Subtitulos
+        Font otrosSubtitulos = fuenteBase.deriveFont(20f); // Tamaño de otros Subtitulos
+        Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
+       
+        // Aplica la fuente personalizada a cada botón con diferentes tamaños
+        jButton2.setFont(textoBotones);
+        jButton3.setFont(textoBotones);            
+
+        // Aplica la fuente a los JTextField
+        JLabel1.setFont(titulos);  
+        JLabel2.setFont(subtitulo);  
+        JLabel3.setFont(otrosSubtitulos);
+        JLabel4.setFont(otrosSubtitulos); 
+        JLabel5.setFont(otrosSubtitulos); 
+      
+        jTextArea1.setFont(textoPlano);
+        jTextArea2.setFont(textoPlano);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

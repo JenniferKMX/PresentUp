@@ -135,17 +135,8 @@ private void cargarFuentePersonalizada() {
         jButton5.setFont(textoBotones);
         
 
-        // Aplica la fuente a los JLabel
-        //jLabel1.setFont(titulos);
-        //jLabel2.setFont(subtitulo);   
-       // jLabel3.setFont(otrosSubtitulos);  
+        jTextField1.setFont(titulos);
        
-        // Aplica la fuente a los JTextField
-        //jTextField4.setFont(textoBotones);
-       // jTextField5.setFont(textoBotones);
-        //jTextField6.setFont(textoBotones);
-       // jTextField7.setFont(textoBotones);
-       // jTextField8.setFont(textoBotones);
 
     }
 

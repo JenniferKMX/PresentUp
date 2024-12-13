@@ -77,6 +77,8 @@ public class MisProyectos extends javax.swing.JFrame {
         this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
     }
 
+    
+
     // private void jButtonHTMLActionPerformed(java.awt.event.ActionEvent evt) {
 
     // try {
