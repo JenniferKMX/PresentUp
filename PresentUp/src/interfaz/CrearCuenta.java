@@ -26,6 +26,7 @@ public class CrearCuenta extends javax.swing.JFrame {
      * Creates new form CrearCuenta
      */
     public CrearCuenta() {
+
         initComponents();
         cargarFuentePersonalizada();
         cambiarColorDeFondo();

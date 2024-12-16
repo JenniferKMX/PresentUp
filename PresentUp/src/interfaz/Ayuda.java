@@ -1,4 +1,7 @@
 package interfaz;
+
+import java.awt.Color;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,6 +11,7 @@ package interfaz;
  *
  * @author DAM2
  */
+
 public class Ayuda extends javax.swing.JFrame {
 
         /**
@@ -15,8 +19,17 @@ public class Ayuda extends javax.swing.JFrame {
          */
         public Ayuda() {
                 initComponents();
+                cambiarColorDeFondo();
                 jButton1.addActionListener(e -> abrirInicioTrasLog());
                 jButton2.addActionListener(e -> abrirInicioTrasLog());
+        }
+
+        private void cambiarColorDeFondo() {
+                // Crear un color personalizado usando valores RGB
+                Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
+
+                // Cambiar el color de fondo del JFrame
+                getContentPane().setBackground(colorPersonalizado);
         }
 
         private void abrirInicioTrasLog() {
@@ -56,7 +69,7 @@ public class Ayuda extends javax.swing.JFrame {
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                jLabel2.setText("¿En qué te podemos ayudar?");
+                jLabel2.setText("Información sobre el funcionamiento de la aplicación:");
 
                 jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
                 jButton1.setText("Logo");
