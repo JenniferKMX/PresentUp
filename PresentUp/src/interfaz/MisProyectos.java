@@ -230,36 +230,6 @@ public class MisProyectos extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void abrirInicio() {
-        new Inicio().setVisible(true);
-        this.dispose();
-    }
-
-    private void abrirVerPlantillas() {
-        new VPlantillas().setVisible(true);
-        this.dispose();
-    }
-
-    private void abrirNombreNuevoPoryecto() {
-        new NombreNuevoPoryecto().setVisible(true);
-        this.dispose();
-    }
-
-    private void abrirVPlantillas() {
-        new VPlantillas().setVisible(true);
-        this.dispose();
-    }
-
-    private void abrirPantallaMiCuenta() {
-        new PantallaMiCuenta().setVisible(true);
-        this.dispose();
-    }
-
-    private void abrirMisPoryectos() {
-        new MisProyectos().setVisible(true);
-        this.dispose();
-    }
-
     
 
     // private void jButtonHTMLActionPerformed(java.awt.event.ActionEvent evt) {
