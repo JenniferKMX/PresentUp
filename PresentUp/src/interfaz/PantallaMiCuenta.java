@@ -1,4 +1,5 @@
 package interfaz;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -19,47 +20,47 @@ public class PantallaMiCuenta extends javax.swing.JFrame {
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
         configurarTeclaF1();
-        configurarTeclaEnter(); 
+        configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirEditarMiCuenta());
         jButton2.addActionListener(e -> abrirInicio());
     }
 
-    private void configurarTeclaEnter() { 
-        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio); 
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);
         configurarAccionBoton(jButton4, "clicSaberMas", this::abrirEditarMiCuenta);
-     }
- 
-     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
-         // Asocia la tecla ENTER al botón especificado
-         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
-         boton.getActionMap().put(actionKey, new AbstractAction() {
-             @Override
-             public void actionPerformed(java.awt.event.ActionEvent e) {
-                 accion.run();  // Ejecuta la acción asociada al botón
-             }
-         });
-     }
+    }
 
-// //esto es lo de ayuda
-private void configurarTeclaF1() { //esto es lo de ayuda
-    // Asociar la tecla F1 a una acción específica
-    String actionKey = "abrirAyuda";
-    getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
-            .put(KeyStroke.getKeyStroke("F1"), actionKey);
-    getRootPane().getActionMap().put(actionKey, new AbstractAction() {
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent e) {
-            abrirAyuda(); //esto es lo de ayuda
-        }
-    });
-}
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run(); // Ejecuta la acción asociada al botón
+            }
+        });
+    }
 
-private void abrirAyuda() { //esto es lo de ayuda
-    Ayuda ayuda = new Ayuda();
-    ayuda.setVisible(true);    // Muestra la ventana
-    this.dispose(); 
-}
+    // //esto es lo de ayuda
+    private void configurarTeclaF1() { // esto es lo de ayuda
+        // Asociar la tecla F1 a una acción específica
+        String actionKey = "abrirAyuda";
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke("F1"), actionKey);
+        getRootPane().getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                abrirAyuda(); // esto es lo de ayuda
+            }
+        });
+    }
+
+    private void abrirAyuda() { // esto es lo de ayuda
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true); // Muestra la ventana
+        this.dispose();
+    }
 
     private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
@@ -72,9 +73,11 @@ private void abrirAyuda() { //esto es lo de ayuda
     private void cargarFuentePersonalizada() {
         try {
             // Ruta al archivo de la fuente en tu proyecto
-           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
-            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
-            
+            // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf"; // Ajusta la ruta
+            // según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT,
+                    getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+
             // Registrar la fuente en el sistema (opcional)
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(fuentePersonalizada);
@@ -84,32 +87,14 @@ private void abrirAyuda() { //esto es lo de ayuda
             // Aplicar la fuente personalizada a los componentes
             aplicarFuentePersonalizada(fuentePersonalizada);
 
-        } catch (IOException | FontFormatException e) {  
+        } catch (IOException | FontFormatException e) {
             e.printStackTrace();
         }
     }
 
     private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
-        // Aplica la fuente a todos los botones
-        //jButton1.setFont(fuentePersonalizada); //LOGO
-        jButton2.setFont(fuentePersonalizada);// Salir 
-        jButton3.setFont(fuentePersonalizada);// Btn Menu
-        jButton4.setFont(fuentePersonalizada);// Guardar
-        //jButton5.setFont(fuentePersonalizada);// +
 
-        // Aplica la fuente a todos los JLabel
-       /*  jLabel1.setFont(fuentePersonalizada);//Titulo 
-        jLabel2.setFont(fuentePersonalizada);//Subtitulo Seccion1
-        jLabel3.setFont(fuentePersonalizada);//Editar Mi Cuenta 
-            
-        // Aplica la fuente a los JTextField
-        jTextField4.setFont(fuentePersonalizada);// Texto Email
-        jTextField5.setFont(fuentePersonalizada);// Texto Contraseña
-        jTextField6.setFont(fuentePersonalizada);// Texto Nombre 
-        jTextField7.setFont(fuentePersonalizada);// Texto Apellido
-        jTextField8.setFont(fuentePersonalizada);// Texto Telefono
-
-        //Aplicar la fuente a los elemento del Menu */
+        jLabel1.setFont(fuentePersonalizada);// Titulo
 
         aplicarTamanosDeFuentes(fuentePersonalizada);
     }
@@ -119,48 +104,31 @@ private void abrirAyuda() { //esto es lo de ayuda
         Font titulos = fuenteBase.deriveFont(70f); // Tamaño de los Titulos
         Font subtitulo = fuenteBase.deriveFont(36f); // Tamaño de los Subtitulos
         Font otrosSubtitulos = fuenteBase.deriveFont(26f); // Tamaño de otros Subtitulos
-        //Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
-        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
- 
+        // Font textoPlano = fuenteBase.deriveFont(14f); // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f); // Tamaño de los botones
 
-        // Aplica la fuente personalizada a cada botón con diferentes tamaños
-        jButton2.setFont(textoBotones);
-        jButton3.setFont(textoBotones);
-        jButton4.setFont(textoBotones);
-        //jButton5.setFont(textoBotones);
-        
-
-        // Aplica la fuente a los JLabel
-        //jLabel1.setFont(titulos);
-        //jLabel2.setFont(subtitulo);   
-       // jLabel3.setFont(otrosSubtitulos);  
-       
-        // Aplica la fuente a los JTextField
-        //jTextField4.setFont(textoBotones);
-       // jTextField5.setFont(textoBotones);
-        //jTextField6.setFont(textoBotones);
-       // jTextField7.setFont(textoBotones);
-       // jTextField8.setFont(textoBotones);
+        jLabel1.setFont(subtitulo);
 
     }
+
     private void agregarMenuLateral(Font fuentePersonalizada) {
         // Crear el menú desplegable (JPopupMenu)
         JPopupMenu popupMenu = new JPopupMenu();
-    
+
         // Crear los elementos del menú
         JMenuItem nuevoProyecto = new JMenuItem("Nuevo proyecto");
         JMenuItem misProyectos = new JMenuItem("Mis proyectos");
         JMenuItem plantillas = new JMenuItem("Plantillas");
         JMenuItem miCuenta = new JMenuItem("Mi cuenta");
         JMenuItem ayuda = new JMenuItem("Ayuda");
-    
+
         // Agregar los elementos al menú desplegable
         popupMenu.add(nuevoProyecto);
         popupMenu.add(misProyectos);
         popupMenu.add(plantillas);
         popupMenu.add(miCuenta);
         popupMenu.add(ayuda);
-    
+
         // Agregar un ActionListener al botón jButton3 para mostrar el menú cuando se
         // hace clic
         jButton3.addActionListener(new ActionListener() {
@@ -170,7 +138,7 @@ private void abrirAyuda() { //esto es lo de ayuda
                 popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
             }
         });
-    
+
         // Configurar la tecla ENTER para que también muestre el menú
         jButton3.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "mostrarMenu");
         jButton3.getActionMap().put("mostrarMenu", new AbstractAction() {
@@ -179,14 +147,14 @@ private void abrirAyuda() { //esto es lo de ayuda
                 popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
             }
         });
-    
+
         // Configurar las acciones de los elementos del menú
         nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
         misProyectos.addActionListener(e -> abrirMisPoryectos());
         plantillas.addActionListener(e -> abrirVPlantillas());
         miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
         ayuda.addActionListener(e -> abrirAyuda());
-    
+
         // Aplicar la fuente personalizada a los elementos del menú
         nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
         misProyectos.setFont(fuentePersonalizada.deriveFont(18f));
@@ -194,7 +162,7 @@ private void abrirAyuda() { //esto es lo de ayuda
         miCuenta.setFont(fuentePersonalizada.deriveFont(18f));
         ayuda.setFont(fuentePersonalizada.deriveFont(18f));
     }
-    
+
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);
         this.dispose();
@@ -219,15 +187,16 @@ private void abrirAyuda() { //esto es lo de ayuda
         new VPlantillas().setVisible(true);
         this.dispose();
     }
+
     private void abrirPantallaMiCuenta() {
         new PantallaMiCuenta().setVisible(true);
         this.dispose();
     }
+
     private void abrirMisPoryectos() {
         new MisProyectos().setVisible(true);
         this.dispose();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -235,7 +204,8 @@ private void abrirAyuda() { //esto es lo de ayuda
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
@@ -282,99 +252,110 @@ private void abrirAyuda() { //esto es lo de ayuda
 
         jButton4.setText("Editar");
 
-        
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(192, 192, 192)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(473, 473, 473)
-                        .addComponent(jButton4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(111, 111, 111)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                .addGap(192, 192, 192)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352,
+                                        Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(80, 80, 80)
+                                                .addComponent(jLabel3))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(473, 473, 473)
+                                                .addComponent(jButton4)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel8)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(68, 68, 68))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel3)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(40, 40, 40)
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 214,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(52, 52, 52)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel6))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(jLabel7))
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jLabel8)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20,
+                                        Short.MAX_VALUE)
+                                .addComponent(jButton4)
+                                .addGap(68, 68, 68)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(497, 497, 497)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGap(85, 85, 85)
-                        .addComponent(jButton3)
-                        .addGap(75, 75, 75))))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(497, 497, 497)
+                                                .addComponent(jLabel1)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                .createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButton2))
+                                                .addGap(85, 85, 85)
+                                                .addComponent(jButton3)
+                                                .addGap(75, 75, 75)))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton2)
-                                .addComponent(jButton3))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(81, 81, 81)
+                                                .addComponent(jLabel1))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(42, 42, 42)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(jButton2)
+                                                                .addComponent(jButton3))
+                                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(17, 17, 17)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(117, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -384,9 +365,13 @@ private void abrirAyuda() { //esto es lo de ayuda
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -396,15 +381,19 @@ private void abrirAyuda() { //esto es lo de ayuda
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaMiCuenta.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -413,6 +402,7 @@ private void abrirAyuda() { //esto es lo de ayuda
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

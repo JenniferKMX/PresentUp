@@ -35,9 +35,8 @@ public class CrearCuenta extends javax.swing.JFrame {
         jButton1.addActionListener(e -> abrirInicioSesion());
     }
 
-
     private void configurarTeclaEnter() {
-        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);    
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);
         configurarAccionBoton(jButton1, "clicSaberMas", this::abrirInicioSesion);
     }
 
@@ -47,7 +46,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         boton.getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                accion.run();  // Ejecuta la acción asociada al botón
+                accion.run(); // Ejecuta la acción asociada al botón
             }
         });
     }
@@ -94,21 +93,12 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
         // Aplica la fuente a todos los botones
-        jButton1.setFont(fuentePersonalizada); // Boton Crear
+
         // jButton2.setFont(fuentePersonalizada);//LOGO
 
         // Aplica la fuente a todos los JLabel
-        jLabel1.setFont(fuentePersonalizada);// Crear Cuenta
-        jLabel2.setFont(fuentePersonalizada);// Titulo
-        jLabel3.setFont(fuentePersonalizada);// Requisitos de Contraseña
 
-        // Aplica la fuente a los JTextField
-        jTextField2.setFont(fuentePersonalizada);// Texto Email
-        jTextField4.setFont(fuentePersonalizada);// Texto Nombre
-        jTextField5.setFont(fuentePersonalizada);// Texto Contraseña
-        jTextField6.setFont(fuentePersonalizada);// Texto +
-        jTextField7.setFont(fuentePersonalizada);// Texto Telefono
-        jTextField8.setFont(fuentePersonalizada);// texto Apellidos
+        jLabel2.setFont(fuentePersonalizada);// Titulo
 
         aplicarTamanosDeFuentes(fuentePersonalizada);
     }
@@ -122,19 +112,9 @@ public class CrearCuenta extends javax.swing.JFrame {
         // Font textoMenu = fuenteBase.deriveFont(20f); // Tamaño del menu
 
         // Aplica la fuente personalizada a cada botón con diferentes tamaños
-        jButton1.setFont(textoBotones); // LOGO
 
         // Aplica la fuente a los JTextField
-        jLabel2.setFont(titulos);
-        jLabel1.setFont(subtitulo);
-        jLabel3.setFont(textoPlano);
-
-        jTextField2.setFont(textoBotones);
-        jTextField4.setFont(textoBotones);
-        jTextField5.setFont(textoBotones);
-        jTextField6.setFont(textoBotones);
-        jTextField7.setFont(textoBotones);
-        jTextField8.setFont(textoBotones);
+        jLabel2.setFont(subtitulo);
 
     }
 

@@ -27,9 +27,9 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
-        cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
+        cargarFuentePersonalizada(); // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
-        configurarTeclaF1(); 
+        configurarTeclaF1();
         configurarTeclaEnter();
         cargarFuentePersonalizada();
         jButton2.addActionListener(e -> abrirInicio());
@@ -37,7 +37,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     ////esto es lo de ayuda
-    private void configurarTeclaF1() { //esto es lo de ayuda
+    private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
         String actionKey = "abrirAyuda";
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
@@ -45,14 +45,14 @@ public class InicioSesion extends javax.swing.JFrame {
         getRootPane().getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                abrirAyuda(); //esto es lo de ayuda
+                abrirAyuda(); // esto es lo de ayuda
             }
         });
     }
 
     private void configurarTeclaEnter() {
         // Asocia la tecla ENTER a la acción de los botones
-        configurarAccionBoton(jButton1, "clicSaberMas", this::abrirInicioTrasLog);   
+        configurarAccionBoton(jButton1, "clicSaberMas", this::abrirInicioTrasLog);
         // Si tienes otro botón 'Ver Todos', puedes añadirlo de la misma forma
     }
 
@@ -62,30 +62,29 @@ public class InicioSesion extends javax.swing.JFrame {
         boton.getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                accion.run();  // Ejecuta la acción asociada al botón
+                accion.run(); // Ejecuta la acción asociada al botón
             }
         });
     }
 
-    private void abrirAyuda() { //esto es lo de ayuda
+    private void abrirAyuda() { // esto es lo de ayuda
         Ayuda ayuda = new Ayuda();
-        ayuda.setVisible(true);    // Muestra la ventana
-        this.dispose(); 
+        ayuda.setVisible(true); // Muestra la ventana
+        this.dispose();
     }
 
     /**
      * Método para cargar la fuente personalizada y aplicarla al jTextField1
      */
-  
-    
-     private void cambiarColorDeFondo() {
+
+    private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
         Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
 
         // Cambiar el color de fondo del JFrame
         getContentPane().setBackground(colorPersonalizado);
     }
-   
+
     private void abrirInicio() {
         new Inicio().setVisible(true);
         this.dispose();
@@ -95,13 +94,15 @@ public class InicioSesion extends javax.swing.JFrame {
         new InicioTrasLog().setVisible(true);
         this.dispose();
     }
-    
+
     private void cargarFuentePersonalizada() {
         try {
             // Ruta al archivo de la fuente en tu proyecto
-           // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
-            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
-            
+            // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf"; // Ajusta la ruta
+            // según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT,
+                    getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
+
             // Registrar la fuente en el sistema (opcional)
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(fuentePersonalizada);
@@ -109,27 +110,18 @@ public class InicioSesion extends javax.swing.JFrame {
             // Aplicar la fuente personalizada a los componentes
             aplicarFuentePersonalizada(fuentePersonalizada);
 
-        } catch (IOException | FontFormatException e) {  
+        } catch (IOException | FontFormatException e) {
             e.printStackTrace();
         }
     }
 
     private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
         // Aplica la fuente a todos los botones
-        //jButton1.setFont(fuentePersonalizada); //LOGO
-        jButton2.setFont(fuentePersonalizada); //Atras
-       
+        // jButton1.setFont(fuentePersonalizada); //LOGO
 
         // Aplica la fuente a todos los JLabel
-        jLabel1.setFont(fuentePersonalizada);//Titulo 
-        
-       
+        jLabel1.setFont(fuentePersonalizada);// Titulo
 
-        // Aplica la fuente a los JScrollPane
-        jTextField1.setFont(fuentePersonalizada);//En que se van a emplear 
-        jTextField2.setFont(fuentePersonalizada);//Ingresos proyectado
-        jTextField4.setFont(fuentePersonalizada);
-        
         aplicarTamanosDeFuentes(fuentePersonalizada);
     }
 
@@ -137,22 +129,14 @@ public class InicioSesion extends javax.swing.JFrame {
         // Definir diferentes tamaños de fuente
         Font titulos = fuenteBase.deriveFont(60f); // Tamaño de los Titulos
         Font subtitulo = fuenteBase.deriveFont(25f); // Tamaño de los Subtitulos
-        //Font otrosSubtitulos = fuenteBase.deriveFont(20f); // Tamaño de otros Subtitulos
-        Font textoPlano = fuenteBase.deriveFont(14f);  // Tamaño de los textos planos
-        Font textoBotones = fuenteBase.deriveFont(18f);  // Tamaño de los botones 
-       
-        // Aplica la fuente personalizada a cada botón con diferentes tamaños
-        jButton1.setFont(textoBotones);
+        // Font otrosSubtitulos = fuenteBase.deriveFont(20f); // Tamaño de otros
+        // Subtitulos
+        Font textoPlano = fuenteBase.deriveFont(14f); // Tamaño de los textos planos
+        Font textoBotones = fuenteBase.deriveFont(18f); // Tamaño de los botones
 
-        // Aplica la fuente a los JTextField
-        jLabel1.setFont(subtitulo); 
-      
-        jTextField1.setFont(titulos);
-        jTextField2.setFont(textoPlano);
-        jTextField4.setFont(textoPlano);
+        jTextField1.setFont(subtitulo);
+
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,7 +144,8 @@ public class InicioSesion extends javax.swing.JFrame {
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
@@ -210,85 +195,99 @@ public class InicioSesion extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jButton1)))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(106, 106, 106)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(78, 78, 78)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jTextField4,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 192,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jTextField2,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 192,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(136, 136, 136)
+                                                .addComponent(jButton1)))
+                                .addContainerGap(78, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jButton1)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jButton1)
+                                .addContainerGap(74, Short.MAX_VALUE)));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
-
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(409, 409, 409))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(99, 99, 99)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 525,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(323, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(409, 409, 409)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(70, 70, 70)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(97, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }// GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }// GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -298,16 +297,20 @@ public class InicioSesion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+        // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -28,30 +28,31 @@ public class SaberMas extends javax.swing.JFrame {
      */
     public SaberMas() {
         initComponents();
-        cargarFuentePersonalizada();  // Cargar y aplicar la fuente al JTextField
+        cargarFuentePersonalizada(); // Cargar y aplicar la fuente al JTextField
         cambiarColorDeFondo();
-        configurarTeclaF1(); 
+        configurarTeclaF1();
         configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicio());
         jButton2.addActionListener(e -> abrirInicio());
     }
-    
-    private void configurarTeclaEnter() { 
-        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio); 
-     }
- 
-     private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
-         // Asocia la tecla ENTER al botón especificado
-         boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
-         boton.getActionMap().put(actionKey, new AbstractAction() {
-             @Override
-             public void actionPerformed(java.awt.event.ActionEvent e) {
-                 accion.run();  // Ejecuta la acción asociada al botón
-             }
-         });
-     }
-////esto es lo de ayuda
-    private void configurarTeclaF1() { //esto es lo de ayuda
+
+    private void configurarTeclaEnter() {
+        configurarAccionBoton(jButton2, "clicSaberMas", this::abrirInicio);
+    }
+
+    private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
+        // Asocia la tecla ENTER al botón especificado
+        boton.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), actionKey);
+        boton.getActionMap().put(actionKey, new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                accion.run(); // Ejecuta la acción asociada al botón
+            }
+        });
+    }
+
+    ////esto es lo de ayuda
+    private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
         String actionKey = "abrirAyuda";
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
@@ -59,46 +60,49 @@ public class SaberMas extends javax.swing.JFrame {
         getRootPane().getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                abrirAyuda(); //esto es lo de ayuda
+                abrirAyuda(); // esto es lo de ayuda
             }
         });
     }
 
-    private void abrirAyuda() { //esto es lo de ayuda
+    private void abrirAyuda() { // esto es lo de ayuda
         Ayuda ayuda = new Ayuda();
-        ayuda.setVisible(true);    // Muestra la ventana
-        this.dispose(); 
+        ayuda.setVisible(true); // Muestra la ventana
+        this.dispose();
     }
 
-private void cargarFuentePersonalizada() {
-    try {
-        // Ruta al archivo de la fuente en tu proyecto
-        String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";  // Ajusta la ruta según tu proyecto
-        Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, new File(rutaFuente)).deriveFont(70f); // Cambiar el tamaño aquí
-        
-        // Registrar la fuente en el sistema (opcional)
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(fuentePersonalizada);
+    private void cargarFuentePersonalizada() {
+        try {
+            // Ruta al archivo de la fuente en tu proyecto
+            String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf"; // Ajusta la ruta según tu proyecto
+            Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT, new File(rutaFuente)).deriveFont(70f); // Cambiar
+                                                                                                                  // el
+                                                                                                                  // tamaño
+                                                                                                                  // aquí
 
-        // Aplicar la fuente al jTextField1
-        jTextField1.setFont(fuentePersonalizada);
-        
-    } catch (IOException | FontFormatException e) {
-        e.printStackTrace();
+            // Registrar la fuente en el sistema (opcional)
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fuentePersonalizada);
+
+            // Aplicar la fuente al jTextField1
+            jTextField1.setFont(fuentePersonalizada);
+
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
     }
 
-}
-    
-     private void cambiarColorDeFondo() {
+    private void cambiarColorDeFondo() {
         // Crear un color personalizado usando valores RGB
         Color colorPersonalizado = new Color(184, 198, 230); // Color RGB [184, 198, 230]
 
         // Cambiar el color de fondo del JFrame
         getContentPane().setBackground(colorPersonalizado);
     }
-   
+
     private void abrirInicio() {
-        new Inicio().setVisible(true); 
+        new Inicio().setVisible(true);
         this.dispose();// Asume que Inicio.java crea un nuevo objeto Inicio
     }
 
@@ -108,7 +112,8 @@ private void cargarFuentePersonalizada() {
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -127,19 +132,22 @@ private void cargarFuentePersonalizada() {
         jTextArea1.setBackground(new java.awt.Color(184, 198, 230));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("PresentUp no solo es una herramienta,\nes un aliado para los emprendedores.\nEs un aliado para los emprendedores en\nlos primeros pasos de su startup.\n\nAl simplificar la creación de materiales de\npresentación mediante plantillas o templates,\ntendrás el poder de presentarte de manera \nefectiva y profesional.\nA la vez que agilizamos el proceso.");
+        jTextArea1.setText(
+                "PresentUp no solo es una herramienta,\nes un aliado para los emprendedores.\nEs un aliado para los emprendedores en\nlos primeros pasos de su startup.\n\nAl simplificar la creación de materiales de\npresentación mediante plantillas o templates,\ntendrás el poder de presentarte de manera \nefectiva y profesional.\nA la vez que agilizamos el proceso.");
         jScrollPane1.setViewportView(jTextArea1);
 
         jTextArea2.setBackground(new java.awt.Color(184, 198, 230));
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("La app es sencilla, con una interfaz\namigable y atractiva, de forma que\ncualquier emprendedor, sin importar\nsus conocimientos técnicos, pueda\ncrear presentaciones impactantes, \nenfocándonos en la calidad visual y \nla estructura de las presentaciones, \ny asegurando que los emprendedores\ndestaquen frente a la competencia. ");
+        jTextArea2.setText(
+                "La app es sencilla, con una interfaz\namigable y atractiva, de forma que\ncualquier emprendedor, sin importar\nsus conocimientos técnicos, pueda\ncrear presentaciones impactantes, \nenfocándonos en la calidad visual y \nla estructura de las presentaciones, \ny asegurando que los emprendedores\ndestaquen frente a la competencia. ");
         jScrollPane2.setViewportView(jTextArea2);
 
         jTextArea3.setBackground(new java.awt.Color(184, 198, 230));
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jTextArea3.setText("Para ello, además, contaremos con\nuna importante base de datos, ya\nque la recopilación de información \nsobre las startups permite a PresentUp \nconvertirse en un importante repositorio\nde conocimiento sobre el ecosistema\nemprendedor.\n\n¡No lo dudes y comienza ya tu PresentUp!");
+        jTextArea3.setText(
+                "Para ello, además, contaremos con\nuna importante base de datos, ya\nque la recopilación de información \nsobre las startups permite a PresentUp \nconvertirse en un importante repositorio\nde conocimiento sobre el ecosistema\nemprendedor.\n\n¡No lo dudes y comienza ya tu PresentUp!");
         jScrollPane3.setViewportView(jTextArea3);
 
         jTextField1.setEditable(false);
@@ -164,77 +172,96 @@ private void cargarFuentePersonalizada() {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE));
 
-        jButton1.setText("inicioButton");
+        jButton1.setText("Atrás");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(72, 72, 72))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 258,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(114, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 132,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(114, 114, 114)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 421,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(72, 72, 72)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152,
+                                        Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE, 198,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE, 198,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE, 198,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(84, 84, 84)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }// GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -252,8 +279,8 @@ private void cargarFuentePersonalizada() {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SaberMas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+        // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

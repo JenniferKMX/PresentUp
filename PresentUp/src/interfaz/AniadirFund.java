@@ -40,9 +40,11 @@ public class AniadirFund extends javax.swing.JFrame {
 
     private void configurarTeclaEnter() {
         // Asocia la tecla ENTER a la acción de los botones
-        configurarAccionBoton(jButton2, "clicSaberMas", this::volverDatosBasicos);    
-        //configurarAccionBoton(jButton3, "clicSaberMas", this::abrirInicioTrasLog);  Botones de subir imagen
-        //configurarAccionBoton(jButton4, "clicSaberMas", this::abrirInicioTrasLog);  Botones de subir imagen
+        configurarAccionBoton(jButton2, "clicSaberMas", this::volverDatosBasicos);
+        // configurarAccionBoton(jButton3, "clicSaberMas", this::abrirInicioTrasLog);
+        // Botones de subir imagen
+        // configurarAccionBoton(jButton4, "clicSaberMas", this::abrirInicioTrasLog);
+        // Botones de subir imagen
         configurarAccionBoton(jButton5, "clicSaberMas", this::guardarFundadores);
     }
 
@@ -52,7 +54,7 @@ public class AniadirFund extends javax.swing.JFrame {
         boton.getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                accion.run();  // Ejecuta la acción asociada al botón
+                accion.run(); // Ejecuta la acción asociada al botón
             }
         });
     }
@@ -140,27 +142,8 @@ public class AniadirFund extends javax.swing.JFrame {
         Font textoBotones = fuenteBase.deriveFont(18f); // Tamaño de los botones
         // Font textoMenu = fuenteBase.deriveFont(20f); // Tamaño del menu
 
-        // Aplica la fuente personalizada a cada botón con diferentes tamaños
-        jButton1.setFont(textoBotones); // LOGO
-        jButton2.setFont(textoBotones); // Tamaño 30 para este botón
-        jButton3.setFont(textoBotones); // Tamaño 30 para este botón
-        jButton4.setFont(textoBotones); // Tamaño 30 para este botón
-        jButton5.setFont(textoBotones); // Tamaño 30 para este botón
-
         // Aplica la fuente a los JTextField
-        jLabel1.setFont(titulos); // Titulo (PresentUp)
-        jLabel2.setFont(subtitulo); // Subtitulo (¿Ya Tienes Cuenta?
-        jLabel3.setFont(textoPlano);
-        jLabel4.setFont(textoPlano);
-        jLabel5.setFont(textoPlano);
-        jLabel6.setFont(textoBotones);// esta label tiene el mismo tamaño de letra que los botones
-
-        jTextField1.setFont(textoPlano);
-        jTextField2.setFont(textoPlano);
-        jTextField5.setFont(textoPlano);
-        jTextField6.setFont(textoPlano);
-        jTextField7.setFont(textoPlano);
-        jTextField8.setFont(textoPlano);
+        jLabel1.setFont(subtitulo); // Titulo (PresentUp)
 
     }
 
@@ -482,7 +465,7 @@ public class AniadirFund extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     // End of variables declaration
 
-     // nombre fundador:
+    // nombre fundador:
     public JTextField getNombreFundador2() {
         return jTextField5;
     }
@@ -497,8 +480,8 @@ public class AniadirFund extends javax.swing.JFrame {
         return jTextField6;
     }
 
-     // nombre fundador:
-     public JTextField getNombreFundador3() {
+    // nombre fundador:
+    public JTextField getNombreFundador3() {
         return jTextField8;
     }
 
@@ -515,6 +498,5 @@ public class AniadirFund extends javax.swing.JFrame {
     public JButton guardar() {
         return jButton5;
     }
-
 
 }

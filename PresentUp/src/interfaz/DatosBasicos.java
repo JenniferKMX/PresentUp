@@ -37,7 +37,7 @@ public class DatosBasicos extends javax.swing.JFrame {
     }
 
     private void configurarTeclaEnter() {
-        configurarAccionBoton(jButton4, "clicSaberMas", this::abrirAniadirFund);    
+        configurarAccionBoton(jButton4, "clicSaberMas", this::abrirAniadirFund);
         configurarAccionBoton(jButton5, "clicSaberMas", this::abrirFormProduct);
     }
 
@@ -47,10 +47,11 @@ public class DatosBasicos extends javax.swing.JFrame {
         boton.getActionMap().put(actionKey, new AbstractAction() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                accion.run();  // Ejecuta la acción asociada al botón
+                accion.run(); // Ejecuta la acción asociada al botón
             }
         });
     }
+
     // //esto es lo de ayuda
     private void configurarTeclaF1() { // esto es lo de ayuda
         // Asociar la tecla F1 a una acción específica
@@ -102,29 +103,8 @@ public class DatosBasicos extends javax.swing.JFrame {
     private void aplicarFuentePersonalizada(Font fuentePersonalizada) {
         // Aplica la fuente a todos los botones
         // jButton1.setFont(fuentePersonalizada); //LOGO
-        jButton2.setFont(fuentePersonalizada);// Subir Imagen Izq
-        jButton3.setFont(fuentePersonalizada);// Subir Imagen Der
-        jButton4.setFont(fuentePersonalizada);// Añadir mas Fund
-        jButton5.setFont(fuentePersonalizada);// Siguiente
 
-        // Aplica la fuente a todos los JLabel
         jLabel1.setFont(fuentePersonalizada);// Titulo
-        jLabel2.setFont(fuentePersonalizada);// Subtitulo Seccion1
-        jLabel3.setFont(fuentePersonalizada);// Datos de la empresa
-        jLabel4.setFont(fuentePersonalizada);// *Campo obligatorio
-        jLabel5.setFont(fuentePersonalizada);// ¿Cuales son vuestros valores?
-        jLabel6.setFont(fuentePersonalizada);// Datos equipo fundador
-        jLabel7.setFont(fuentePersonalizada);// Equipo Fundador
-        jLabel8.setFont(fuentePersonalizada);// Fundador1
-        jLabel9.setFont(fuentePersonalizada);// 1 de 3
-
-        // Aplica la fuente a los JTextField
-        jTextField1.setFont(fuentePersonalizada);// Texto Cargo
-        jTextField2.setFont(fuentePersonalizada);// Texto Eslogan
-        jTextField3.setFont(fuentePersonalizada);// Texto ¿Quienes Somos?
-        jTextField4.setFont(fuentePersonalizada);// Texto Nombre
-        jTextField5.setFont(fuentePersonalizada);// Texto Nombre Fund1
-        jTextField6.setFont(fuentePersonalizada);// Texto Breve Biografia
 
         aplicarTamanosDeFuentes(fuentePersonalizada);
     }
@@ -139,28 +119,9 @@ public class DatosBasicos extends javax.swing.JFrame {
         // Font textoMenu = fuenteBase.deriveFont(20f); // Tamaño del menu
 
         // Aplica la fuente personalizada a cada botón con diferentes tamaños
-        jButton2.setFont(textoBotones);
-        jButton3.setFont(textoBotones);
-        jButton4.setFont(textoBotones);
-        jButton5.setFont(textoBotones);
 
         // Aplica la fuente a los JTextField
-        jLabel1.setFont(titulos);
-        jLabel2.setFont(subtitulo);
-        jLabel3.setFont(otrosSubtitulos);
-        jLabel4.setFont(textoPlano);
-        jLabel5.setFont(otrosSubtitulos);
-        jLabel6.setFont(otrosSubtitulos);
-        jLabel7.setFont(otrosSubtitulos);
-        jLabel8.setFont(otrosSubtitulos);
-        jLabel9.setFont(textoPlano);
-
-        jTextField1.setFont(textoBotones);
-        jTextField2.setFont(textoBotones);
-        jTextField3.setFont(textoBotones);
-        jTextField4.setFont(textoBotones);
-        jTextField5.setFont(textoBotones);
-        jTextField6.setFont(textoBotones);
+        jLabel1.setFont(subtitulo);
 
     }
 
