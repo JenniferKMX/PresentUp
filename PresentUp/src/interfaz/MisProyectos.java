@@ -8,6 +8,8 @@ import java.awt.Color;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 
@@ -72,9 +74,91 @@ public class MisProyectos extends javax.swing.JFrame {
         getContentPane().setBackground(colorPersonalizado);
     }
 
+        private void agregarMenuLateral() {
+        // Crear el menú desplegable (JPopupMenu)
+        JPopupMenu popupMenu = new JPopupMenu();
+
+        // Crear los elementos del menú
+        JMenuItem nuevoProyecto = new JMenuItem("Nuevo proyecto");
+        JMenuItem misProyectos = new JMenuItem("Mis proyectos");
+        JMenuItem plantillas = new JMenuItem("Plantillas");
+        JMenuItem miCuenta = new JMenuItem("Mi cuenta");
+        JMenuItem ayuda = new JMenuItem("Ayuda");
+
+        // Agregar los elementos al menú desplegable
+        popupMenu.add(nuevoProyecto);
+        popupMenu.add(misProyectos);
+        popupMenu.add(plantillas);
+        popupMenu.add(miCuenta);
+        popupMenu.add(ayuda);
+
+        // Agregar un ActionListener al botón jButton para mostrar el menú cuando se
+        // hace clic
+        jButton9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Mostrar el menú desplegable justo debajo del botón jButton3
+                popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
+            }
+        });
+
+        // Configurar la tecla ENTER para que también muestre el menú
+        jButton9.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "mostrarMenu");
+        jButton9.getActionMap().put("mostrarMenu", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                popupMenu.show(jButton3, jButton3.getWidth(), jButton3.getHeight());
+            }
+        });
+
+        // Configurar las acciones de los elementos del menú
+        nuevoProyecto.addActionListener(e -> abrirNombreNuevoPoryecto());
+        misProyectos.addActionListener(e -> abrirMisPoryectos());
+        plantillas.addActionListener(e -> abrirVPlantillas());
+        miCuenta.addActionListener(e -> abrirPantallaMiCuenta());
+        ayuda.addActionListener(e -> abrirAyuda());
+
+        // Aplicar la fuente personalizada a los elementos del menú
+        nuevoProyecto.setFont(fuentePersonalizada.deriveFont(18f));
+        misProyectos.setFont(fuentePersonalizada.deriveFont(18f));
+        plantillas.setFont(fuentePersonalizada.deriveFont(18f));
+        miCuenta.setFont(fuentePersonalizada.deriveFont(18f));
+        ayuda.setFont(fuentePersonalizada.deriveFont(18f));
+    }
+
     private void abrirInicioTrasLog() {
         new InicioTrasLog().setVisible(true);
-        this.dispose(); // Asume que Inicio.java crea un nuevo objeto Inicio
+        this.dispose();
+    }
+
+    private void abrirInicio() {
+        new Inicio().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirVerPlantillas() {
+        new VPlantillas().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirNombreNuevoPoryecto() {
+        new NombreNuevoPoryecto().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirVPlantillas() {
+        new VPlantillas().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirPantallaMiCuenta() {
+        new PantallaMiCuenta().setVisible(true);
+        this.dispose();
+    }
+
+    private void abrirMisPoryectos() {
+        new MisProyectos().setVisible(true);
+        this.dispose();
     }
 
     
@@ -107,6 +191,10 @@ public class MisProyectos extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton9.setText("Menú"); // Configurar el texto del botón
+        // Agregar al layout en el lugar adecuado
+        getContentPane().add(jButton9); // Solo si usas un layout básico
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,6 +344,7 @@ public class MisProyectos extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration
