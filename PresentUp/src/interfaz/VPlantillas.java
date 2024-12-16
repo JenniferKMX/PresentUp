@@ -34,6 +34,7 @@ public class VPlantillas extends javax.swing.JFrame {
      * Creates new form VPlantillas
      */
     public VPlantillas() {
+
         initComponents();
         cambiarColorDeFondo();
         cargarFuentePersonalizada();
