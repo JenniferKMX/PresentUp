@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import java.awt.Font;
@@ -33,7 +34,7 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
                 configurarTeclaF1();
                 configurarTeclaEnter();
                 jButton2.addActionListener(e -> abrirFormularioProductoServicio());
-                jButton3.addActionListener(e -> abrirProyectoListo());
+                //jButton3.addActionListener(e -> abrirProyectoListo());
         }
 
         private void configurarTeclaEnter() {
@@ -373,8 +374,50 @@ public class FormularioFinanciacion extends javax.swing.JFrame {
         }
 
         private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
+    // Validar que los campos obligatorios no estén vacíos
+    String euros = jTextField1.getText().trim();
+    String motivoDinero = jTextArea1.getText().trim();
+    String ingresosProyectados = jTextArea2.getText().trim();
+    String gastosProyectados = jTextArea3.getText().trim();
+    
+    // Mensaje de error si algún campo obligatorio está vacío
+    if (euros.isEmpty() || motivoDinero.isEmpty() || ingresosProyectados.isEmpty()) {
+        JOptionPane.showMessageDialog(this, 
+            "Por favor, completa todos los campos obligatorios marcados con '*'.", 
+            "Error: Campos Vacíos", 
+            JOptionPane.ERROR_MESSAGE);
+        
+        // Cambiar el borde de los campos vacíos a rojo
+        if (euros.isEmpty()) {
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
         }
+
+        if (motivoDinero.isEmpty()) {
+            jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+        if (ingresosProyectados.isEmpty()) {
+            jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+    } else {
+        // Si todos los campos están completos, procede a la acción deseada
+        JOptionPane.showMessageDialog(this, 
+            "Formulario completado correctamente.", 
+            "Éxito", 
+            JOptionPane.INFORMATION_MESSAGE);
+        
+        // Ejemplo: abrir otra ventana
+        abrirProyectoListo();
+    }
+}
+
 
         private void abrirFormularioProductoServicio() {
                 new FormularioProductoServicio().setVisible(true); // Asume que Inicio.java crea un nuevo objeto Inicio
