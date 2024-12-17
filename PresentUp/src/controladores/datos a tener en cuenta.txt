@@ -1,1 +1,13 @@
 tengo q autoincrementar el id de cada proyecto nuevo.
+contraseña (asteriscos) e email.
+regex, etiquetas del campo a rellenar.
+campos obligatorios crear y editar mi cuenta.
+botones imagenes.
+ajustar pantallas (responsive "").
+elegir plantillas (arreglar).
+plantillas hay que ponerles inputs.
+barra de retroalimentación.
+botón salir -> cambio a volver.
+Pantalla de inicio -> cambio a jLabel.
+decidir fundadores.
+crear base de datos.
