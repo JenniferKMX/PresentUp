@@ -12,6 +12,7 @@ import java.awt.GraphicsEnvironment;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
@@ -33,7 +34,7 @@ public class DatosBasicos extends javax.swing.JFrame {
         configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
         jButton4.addActionListener(e -> abrirAniadirFund());
-        jButton5.addActionListener(e -> abrirFormProduct());
+        //jButton5.addActionListener(e -> abrirFormProduct());
     }
 
     private void configurarTeclaEnter() {
@@ -239,6 +240,11 @@ public class DatosBasicos extends javax.swing.JFrame {
         jButton4.setText("Añadir más fundadores");
 
         jButton5.setText("Siguiente");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButton5ActionPerformed(evt);
+            }
+    });
 
         jLabel9.setText("1 de 3");
 
@@ -423,6 +429,59 @@ public class DatosBasicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+
+     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    // Validar que los campos obligatorios no estén vacíos
+    String nombreEmpresa = jTextField4.getText().trim();
+    String slogan = jTextField2.getText().trim();
+    String nombreFundador = jTextField5.getText().trim();
+    String cargo = jTextField1.getText().trim();
+    String biografia = jTextField6.getText().trim();
+    
+    // Mensaje de error si algún campo obligatorio está vacío
+    if (nombreEmpresa.isEmpty() || slogan.isEmpty() || cargo.isEmpty() || nombreFundador.isEmpty()  || biografia.isEmpty()) {
+        JOptionPane.showMessageDialog(this, 
+            "Por favor, completa todos los campos obligatorios marcados con '*'.", 
+            "Error: Campos Vacíos", 
+            JOptionPane.ERROR_MESSAGE);
+        
+        // Cambiar el borde de los campos vacíos a rojo
+        if (nombreEmpresa.isEmpty()) {
+            jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+        if (slogan.isEmpty()) {
+            jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+        if (nombreFundador.isEmpty()) {
+            jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+        if (cargo.isEmpty()) {
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+        if (biografia.isEmpty()) {
+            jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+        } else {
+            jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+        }
+
+    } else {
+        // Ejemplo: abrir otra ventana
+        abrirFormProduct();
+    }
+}
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -513,6 +572,7 @@ public class DatosBasicos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     // End of variables declaration
 
+
     // nombre de la empresa
     public String getNombreEmpresa() {
         return jTextField4.getText();
@@ -538,7 +598,7 @@ public class DatosBasicos extends javax.swing.JFrame {
         return jTextField1.getText();
     }
 
-    // cargo fundador:
+    // biografía fundador:
     public String getBiografia() {
         return jTextField6.getText();
     }

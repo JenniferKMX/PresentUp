@@ -9,6 +9,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
@@ -40,7 +41,7 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
                 cargarFuentePersonalizada();
                 jButton1.addActionListener(e -> abrirInicioTrasLog());
                 jButton2.addActionListener(e -> abrirDatosBasicos());
-                jButton3.addActionListener(e -> abrirDatosFinanc());
+                //jButton3.addActionListener(e -> abrirDatosFinanc());
         }
 
         private void configurarTeclaEnter() {
@@ -198,6 +199,11 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
                 jButton2.setText("Atras");
 
                 jButton3.setText("Siguiente");
+                jButton3.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jButton3ActionPerformed(evt);
+                        }
+                });
 
                 JLabel5.setText("2 de 3");
                 JLabel5.setBorder(null);
@@ -355,6 +361,38 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
                 // TODO add your handling code here:
         }// GEN-LAST:event_JLabel2ActionPerformed
 
+        private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+                // Validar que los campos obligatorios no estén vacíos
+                String producto = jTextArea1.getText().trim();
+                String publicoObjetivo = jTextArea2.getText().trim();
+                
+                // Mensaje de error si algún campo obligatorio está vacío
+                if (producto.isEmpty() || publicoObjetivo.isEmpty()) {
+                        JOptionPane.showMessageDialog(this, 
+                        "Por favor, completa todos los campos obligatorios marcados con '*'.", 
+                        "Error: Campos Vacíos", 
+                        JOptionPane.ERROR_MESSAGE);
+                        
+                        // Cambiar el borde de los campos vacíos a rojo
+                        if (producto.isEmpty()) {
+                        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+                        } else {
+                        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+                        }
+
+                        if (publicoObjetivo.isEmpty()) {
+                        jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+                        } else {
+                        jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GRAY));
+                        }
+
+
+                } else {
+                        // Ejemplo: abrir otra ventana
+                        abrirDatosFinanc();
+                }
+        }
+
         /**
          * @param args the command line arguments
          */
@@ -419,7 +457,7 @@ public class FormularioProductoServicio extends javax.swing.JFrame {
                 return jTextArea1.getText();
         }
 
-        // cargo fundador:
+        // cargo publico objetivo:
         public String getPublicoObjetivo() {
                 return jTextArea2.getText();
         }
