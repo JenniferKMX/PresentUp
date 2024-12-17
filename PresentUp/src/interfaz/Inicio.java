@@ -45,7 +45,7 @@ public class Inicio extends javax.swing.JFrame {
                 configurarAccionBoton(jButton2, "clicSaberMas", this::abrirSaberMas);
                 configurarAccionBoton(jButton3, "clicIniciarSesion", this::abrirInicioSesion);
                 configurarAccionBoton(jButton4, "clicCrearCuenta", this::abrirCrearCuenta);
-                // Si tienes otro botón 'Ver Todos', puedes añadirlo de la misma forma
+
         }
 
         private void configurarAccionBoton(javax.swing.JButton boton, String actionKey, Runnable accion) {
@@ -68,12 +68,12 @@ public class Inicio extends javax.swing.JFrame {
         private void cargarFuentePersonalizada() {
                 try {
                         // Ruta al archivo de la fuente en tu proyecto
-                        // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf"; // Ajusta la ruta
+                        // String rutaFuente = "src/Fuente/ContrailOne-Regular.ttf";
                         // según tu proyecto
                         Font fuentePersonalizada = Font.createFont(Font.TRUETYPE_FONT,
                                         getClass().getResourceAsStream("/Fuente/ContrailOne-Regular.ttf"));
 
-                        // Registrar la fuente en el sistema (opcional)
+                        // Registrar la fuente en el sistema
                         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
                         ge.registerFont(fuentePersonalizada);
 
@@ -128,8 +128,7 @@ public class Inicio extends javax.swing.JFrame {
         }
 
         @SuppressWarnings("unchecked")
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
+
         private void initComponents() {
 
                 jTextField1 = new javax.swing.JTextField();
@@ -369,15 +368,15 @@ public class Inicio extends javax.swing.JFrame {
                                                                 .addGap(77, 77, 77)));
 
                 pack();
-        }// </editor-fold>//GEN-END:initComponents
+        }
 
-        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_jTextField1ActionPerformed
+        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_jButton2ActionPerformed
+        }
+
+        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        }
 
         /**
          * @param args the command line arguments
@@ -414,10 +413,7 @@ public class Inicio extends javax.swing.JFrame {
                         java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE,
                                         null, ex);
                 }
-                // </editor-fold>
-                // </editor-fold>
 
-                /* Create and display the form */
                 java.awt.EventQueue.invokeLater(new Runnable() {
                         public void run() {
                                 new Inicio().setVisible(true);
@@ -425,7 +421,7 @@ public class Inicio extends javax.swing.JFrame {
                 });
         }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
+        // Variables declaration - do not modify
         private javax.swing.JButton jButton1;
         private javax.swing.JButton jButton2;
         private javax.swing.JButton jButton3;
@@ -438,5 +434,5 @@ public class Inicio extends javax.swing.JFrame {
         private javax.swing.JTextArea jTextArea1;
         private javax.swing.JTextField jTextField1;
         private javax.swing.JTextField jTextField2;
-        // End of variables declaration//GEN-END:variables
+        // End of variables declaration
 }
