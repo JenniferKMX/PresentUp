@@ -31,7 +31,7 @@ public class InicioTrasLog extends javax.swing.JFrame {
         configurarTeclaF1();
         configurarTeclaEnter();
         jButton1.addActionListener(e -> abrirInicioTrasLog());
-        jButton2.addActionListener(e -> abrirInicio());
+        //jButton2.addActionListener(e -> abrirInicio());
         jButton4.addActionListener(e -> abrirVerPlantillas());
         jButton5.addActionListener(e -> abrirPlantilla1(e));
         jButton6.addActionListener(e -> abrirPlantilla2(e));
@@ -458,8 +458,20 @@ public class InicioTrasLog extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(
+            this,
+            "¿Está seguro de que desea salir?",
+            "Confirmación de salida",
+            javax.swing.JOptionPane.YES_NO_OPTION,
+            javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+    
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            abrirInicio(); // Cierra la aplicación
+        }
+        // Si selecciona "No", no se hace nada.
     }// GEN-LAST:event_jButton2ActionPerformed
+    
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
